@@ -1,0 +1,52 @@
+[
+  {
+    "creationTime": 1766929020000,
+    "lastUpdateTime": 1766929020000,
+    "label": "Je pars",
+    "metadata": "{\"tahoma\":{\"version\":1,\"icon\":\"leaving\",\"template\":\"leaving\"}}",
+    "shortcut": false,
+    "actions": [
+      {
+        "deviceURL": "io://1234-5678-9012/12184029",
+        "commands": [{ "type": 1, "name": "close", "parameters": [] }]
+      },
+      {
+        "deviceURL": "io://1234-5678-9012/1170079",
+        "commands": [{ "type": 1, "name": "off", "parameters": [] }]
+      }
+    ],
+    "oid": "d1b689e1-4087-473d-b726-d3b24770856f"
+  },
+  {
+    "creationTime": 1766929020000,
+    "lastUpdateTime": 1766929020000,
+    "label": "Bonjour",
+    "metadata": "{\"tahoma\":{\"version\":1,\"icon\":\"wake_up\",\"template\":\"wake_up\"}}",
+    "shortcut": false,
+    "actions": [
+      {
+        "deviceURL": "rts://1234-5678-9012/16730022",
+        "commands": [{ "type": 1, "name": "open", "parameters": [] }]
+      },
+      {
+        "deviceURL": "io://1234-5678-9012/12184029",
+        "commands": [{ "type": 1, "name": "setClosure", "parameters": [30] }]
+      }
+    ],
+    "oid": "7e3c40a2-1f57-4c1a-8f2e-1d5b0c9e6a11"
+  },
+  {
+    "creationTime": 1766929020000,
+    "lastUpdateTime": 1766929020000,
+    "label": "Autre box",
+    "metadata": "",
+    "shortcut": false,
+    "actions": [
+      {
+        "deviceURL": "io://9999-8888-7777/1",
+        "commands": [{ "type": 1, "name": "open", "parameters": [] }]
+      }
+    ],
+    "oid": "0b7f6c1e-5d2a-4e8b-9f3c-2a1d0e9b8c77"
+  }
+]

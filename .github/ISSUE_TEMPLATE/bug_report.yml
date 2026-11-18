@@ -1,0 +1,50 @@
+name: Bug report
+description: Something does not work as described in the documentation.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. The **Test the connection** button of the configuration tells which channel reaches the box and why the other one does not: paste its message below.
+  - type: input
+    id: gladys-version
+    attributes:
+      label: Gladys version
+      description: Settings → System.
+      placeholder: '5.3.0'
+    validations:
+      required: true
+  - type: input
+    id: integration-version
+    attributes:
+      label: Integration version
+      description: Integrations → Somfy TaHoma, Supervision tab.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Box and device
+      description: The model of the box (TaHoma Switch, TaHoma v2, Connexoon…), local or cloud, and the device (io or RTS roller shutter, awning, light, sensor…).
+      placeholder: 'TaHoma Switch, local, io roller shutter'
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+      description: Does the device work from the TaHoma app? Is the box on the same network as Gladys?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Logs of the integration (Logs tab of the integration page), ideally with the SDK debug logs: add the environment variable `DEBUG=gladys-integration-sdk` to the container, reproduce, then copy the lines.
+      render: text

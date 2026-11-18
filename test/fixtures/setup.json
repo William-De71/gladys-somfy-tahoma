@@ -1,0 +1,3269 @@
+{
+  "gateways": [
+    {
+      "gatewayId": "1234-5678-9012",
+      "type": 98,
+      "subType": 1,
+      "alive": true,
+      "connectivity": {
+        "status": "OK",
+        "protocolVersion": "2026.4.4-3"
+      },
+      "mode": "ACTIVE"
+    }
+  ],
+  "devices": [
+    {
+      "deviceURL": "io://1234-5678-9012/3000744#1",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:DiscreteRSSILevelState",
+          "value": "good"
+        },
+        {
+          "type": 1,
+          "name": "core:RSSILevelState",
+          "value": 92
+        },
+        {
+          "type": 3,
+          "name": "core:StatusState",
+          "value": "available"
+        },
+        {
+          "type": 3,
+          "name": "core:OpenClosedValveState",
+          "value": "closed"
+        },
+        {
+          "type": 3,
+          "name": "core:OperatingModeState",
+          "value": "manual"
+        },
+        {
+          "type": 1,
+          "name": "core:TargetRoomTemperatureState",
+          "value": 6
+        },
+        {
+          "type": 1,
+          "name": "core:TargetTemperatureState",
+          "value": 6
+        },
+        {
+          "type": 3,
+          "name": "io:CurrentHeatingModeState",
+          "value": "manual"
+        },
+        {
+          "type": 1,
+          "name": "core:DerogatedTargetTemperatureState",
+          "value": 6
+        },
+        {
+          "type": 1,
+          "name": "core:DerogationEndDateTimeState",
+          "value": 1684108718000
+        },
+        {
+          "type": 1,
+          "name": "core:DerogationStartDateTimeState",
+          "value": 1684108718000
+        },
+        {
+          "type": 3,
+          "name": "io:DerogationHeatingModeState",
+          "value": "manual"
+        },
+        {
+          "type": 3,
+          "name": "io:DerogationTypeState",
+          "value": "further_notice"
+        },
+        {
+          "type": 1,
+          "name": "io:ManualModeTargetTemperatureState",
+          "value": 6
+        },
+        {
+          "type": 1,
+          "name": "core:BatteryLevelState",
+          "value": 62
+        },
+        {
+          "type": 3,
+          "name": "io:ValveInstallationModeState",
+          "value": "finished"
+        },
+        {
+          "type": 1,
+          "name": "core:ComfortRoomTemperatureState",
+          "value": 21
+        },
+        {
+          "type": 1,
+          "name": "core:EcoTargetTemperatureState",
+          "value": 19
+        },
+        {
+          "type": 1,
+          "name": "core:FrostProtectionRoomTemperatureState",
+          "value": 8
+        },
+        {
+          "type": 1,
+          "name": "io:AwayModeTargetTemperatureState",
+          "value": 17
+        },
+        {
+          "type": 1,
+          "name": "io:GeofencingModeTargetTemperatureState",
+          "value": 20
+        },
+        {
+          "type": 1,
+          "name": "io:OpenWindowDetectedTargetTemperatureState",
+          "value": 8
+        },
+        {
+          "type": 3,
+          "name": "core:ActiveTimeProgramState",
+          "value": "none"
+        },
+        {
+          "type": 1,
+          "name": "core:MaxSetpointState",
+          "value": 26
+        },
+        {
+          "type": 1,
+          "name": "core:MinSetpointState",
+          "value": 5
+        },
+        {
+          "type": 3,
+          "name": "core:OpenWindowDetectionActivationState",
+          "value": "active"
+        },
+        {
+          "type": 1,
+          "name": "core:TemperatureOffsetConfigurationState",
+          "value": 0
+        },
+        {
+          "type": 3,
+          "name": "io:ByPassActivationState",
+          "value": "disable"
+        },
+        {
+          "type": 3,
+          "name": "io:LockKeyActivationState",
+          "value": "disable"
+        },
+        {
+          "type": 11,
+          "name": "core:TimeProgram1State",
+          "value": {
+            "sunday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "friday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "monday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "thursday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "tuesday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "wednesday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "saturday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": 11,
+          "name": "core:TimeProgram2State",
+          "value": {
+            "sunday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "friday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "monday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "thursday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "tuesday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "wednesday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            },
+            "saturday": {
+              "timeslots": [
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 0
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 6
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 6
+                  },
+                  "mode": "comfort",
+                  "to": {
+                    "minute": 0,
+                    "hour": 21
+                  }
+                },
+                {
+                  "from": {
+                    "minute": 0,
+                    "hour": 21
+                  },
+                  "mode": "eco",
+                  "to": {
+                    "minute": 0,
+                    "hour": 24
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "label": "Vanne chambre",
+      "subsystemId": 1,
+      "attributes": [],
+      "enabled": true,
+      "controllableName": "io:HeatingValveIOComponent",
+      "definition": {
+        "states": [
+          {
+            "name": "core:StatusState",
+            "rawStateId": "2147426304"
+          },
+          {
+            "name": "core:ActiveTimeProgramState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "core:MaxSetpointState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "core:MinSetpointState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "core:OpenWindowDetectionActivationState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "core:TemperatureOffsetConfigurationState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "io:ByPassActivationState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "io:LockKeyActivationState",
+            "rawStateId": "84059684"
+          },
+          {
+            "name": "core:TimeProgram2State",
+            "rawStateId": "84059687"
+          },
+          {
+            "name": "core:BatteryLevelState",
+            "rawStateId": "84059682"
+          },
+          {
+            "name": "core:SensorDefectState",
+            "rawStateId": "84059682"
+          },
+          {
+            "name": "io:ValveInstallationModeState",
+            "rawStateId": "84059682"
+          },
+          {
+            "name": "core:DerogatedTargetTemperatureState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "core:DerogationEndDateTimeState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "core:DerogationStartDateTimeState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "io:DerogationHeatingModeState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "io:DerogationTypeState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "io:ManualModeTargetTemperatureState",
+            "rawStateId": "84059681"
+          },
+          {
+            "name": "core:ComfortRoomTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "core:EcoTargetTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "core:FrostProtectionRoomTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "io:AwayModeTargetTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "io:GeofencingModeTargetTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "io:OpenWindowDetectedTargetTemperatureState",
+            "rawStateId": "84059685"
+          },
+          {
+            "name": "core:NameState",
+            "rawStateId": "2415919105"
+          },
+          {
+            "name": "core:OpenClosedValveState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "core:OperatingModeState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "core:TargetRoomTemperatureState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "core:TargetTemperatureState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "io:CurrentHeatingModeState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "core:TimeProgram1State",
+            "rawStateId": "84059686"
+          },
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "2146500638"
+          }
+        ],
+        "widgetName": "ValveHeatingTemperatureInterface",
+        "attributes": [],
+        "uiClass": "HeatingSystem",
+        "commands": [
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "exitDerogation",
+            "nparams": 0
+          },
+          {
+            "nparams": 4,
+            "commandName": "setAllModeTemperatures",
+            "paramsSig": "p1,p2,p3,p4"
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "nparams": 2,
+            "commandName": "setDerogation",
+            "paramsSig": "p1,p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setName",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "wink",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 2,
+            "commandName": "setTimeProgramById",
+            "paramsSig": "p1,p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setValveSettings",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "advancedRefresh",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "delayedStopIdentify",
+            "paramsSig": "p1"
+          }
+        ],
+        "type": "ACTUATOR"
+      }
+    },
+    {
+      "deviceURL": "io://1234-5678-9012/15097783",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:DiscreteRSSILevelState",
+          "value": "normal"
+        },
+        {
+          "type": 1,
+          "name": "core:RSSILevelState",
+          "value": 58
+        },
+        {
+          "type": 1,
+          "name": "core:ClosureState",
+          "value": 0
+        },
+        {
+          "type": 3,
+          "name": "core:OpenClosedState",
+          "value": "open"
+        },
+        {
+          "type": 3,
+          "name": "core:StatusState",
+          "value": "available"
+        },
+        {
+          "type": 3,
+          "name": "core:NameState",
+          "value": "Velux bureau"
+        }
+      ],
+      "label": "Velux bureau",
+      "subsystemId": 0,
+      "attributes": [
+        {
+          "type": 3,
+          "name": "core:FirmwareRevision",
+          "value": "00000000000000000145"
+        },
+        {
+          "type": 3,
+          "name": "core:Manufacturer",
+          "value": "VELUX"
+        }
+      ],
+      "enabled": true,
+      "controllableName": "io:VerticalInteriorBlindVeluxIOComponent",
+      "definition": {
+        "states": [
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:NameState",
+            "rawStateId": "1"
+          },
+          {
+            "name": "core:StatusState",
+            "rawStateId": "2147426304"
+          },
+          {
+            "name": "core:ClosureState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:OpenClosedState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:Memorized1PositionState",
+            "rawStateId": "16832512"
+          },
+          {
+            "name": "core:SecuredPositionState",
+            "rawStateId": "16832522"
+          }
+        ],
+        "widgetName": "PositionableTiltedScreen",
+        "attributes": [
+          {
+            "name": "core:FirmwareRevision"
+          },
+          {
+            "name": "core:Manufacturer"
+          }
+        ],
+        "uiClass": "Screen",
+        "commands": [
+          {
+            "commandName": "stop",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "delayedStopIdentify",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "refreshMemorized1Position",
+            "nparams": 0
+          },
+          {
+            "commandName": "open",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setConfigState",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "pairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "wink",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "unpairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "advancedRefresh",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "commandName": "up",
+            "nparams": 0
+          },
+          {
+            "commandName": "down",
+            "nparams": 0
+          },
+          {
+            "commandName": "close",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setName",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setSecuredPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setClosure",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "my",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setMemorized1Position",
+            "paramsSig": "p1"
+          }
+        ],
+        "type": "ACTUATOR"
+      }
+    },
+    {
+      "deviceURL": "io://1234-5678-9012/1170079",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:DiscreteRSSILevelState",
+          "value": "good"
+        },
+        {
+          "type": 1,
+          "name": "core:RSSILevelState",
+          "value": 94
+        },
+        {
+          "type": 1,
+          "name": "core:LightIntensityState",
+          "value": 56
+        },
+        {
+          "type": 3,
+          "name": "core:OnOffState",
+          "value": "on"
+        },
+        {
+          "type": 3,
+          "name": "core:StatusState",
+          "value": "available"
+        },
+        {
+          "type": 3,
+          "name": "core:NameState",
+          "value": "Lampe salon"
+        },
+        {
+          "type": 1,
+          "name": "core:Memorized1PositionState",
+          "value": 50
+        }
+      ],
+      "label": "Lampe salon",
+      "subsystemId": 0,
+      "attributes": [
+        {
+          "type": 3,
+          "name": "core:FirmwareRevision",
+          "value": "5133033A02"
+        },
+        {
+          "type": 3,
+          "name": "core:Manufacturer",
+          "value": "Somfy"
+        }
+      ],
+      "enabled": true,
+      "controllableName": "io:DimmableLightIOComponent",
+      "definition": {
+        "states": [
+          {
+            "name": "core:AdditionalStatusState",
+            "rawStateId": "2146500645"
+          },
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:NameState",
+            "rawStateId": "1"
+          },
+          {
+            "name": "core:StatusState",
+            "rawStateId": "2147426304"
+          },
+          {
+            "name": "core:ManufacturerSettingsState",
+            "rawStateId": "2"
+          },
+          {
+            "name": "core:ManufacturerDiagnosticsState",
+            "rawStateId": "2"
+          },
+          {
+            "name": "core:LightIntensityState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:OnOffState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:Memorized1PositionState",
+            "rawStateId": "16832512"
+          },
+          {
+            "name": "core:SecuredPositionState",
+            "rawStateId": "16832522"
+          }
+        ],
+        "widgetName": "DimmerLight",
+        "attributes": [
+          {
+            "name": "core:SupportedManufacturerSettingsCommands"
+          },
+          {
+            "name": "core:FirmwareRevision"
+          },
+          {
+            "name": "core:Manufacturer"
+          }
+        ],
+        "uiClass": "Light",
+        "commands": [
+          {
+            "nparams": 1,
+            "commandName": "delayedStopIdentify",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 2,
+            "commandName": "runManufacturerSettingsCommand",
+            "paramsSig": "p1,p2"
+          },
+          {
+            "commandName": "on",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "onWithTimer",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setConfigState",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "pairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "commandName": "unpairAllOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "sendIOKey",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "wink",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "unpairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setSecuredPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "my",
+            "nparams": 0
+          },
+          {
+            "commandName": "keepOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setMemorized1Position",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "refreshMemorized1Position",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "advancedRefresh",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setName",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setOnOff",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "off",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setIntensity",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 2,
+            "commandName": "setIntensityWithTimer",
+            "paramsSig": "p1,p2,*p3"
+          }
+        ],
+        "type": "ACTUATOR"
+      }
+    },
+    {
+      "deviceURL": "io://1234-5678-9012/1292684#2",
+      "available": true,
+      "synced": true,
+      "type": 2,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:DiscreteRSSILevelState",
+          "value": "good"
+        },
+        {
+          "type": 1,
+          "name": "core:RSSILevelState",
+          "value": 98
+        },
+        {
+          "type": 3,
+          "name": "core:StatusState",
+          "value": "available"
+        },
+        {
+          "type": 2,
+          "name": "core:TemperatureState",
+          "value": 24.1
+        }
+      ],
+      "label": "Thermostat chambre",
+      "subsystemId": 2,
+      "attributes": [
+        {
+          "type": 3,
+          "name": "core:PowerSourceType",
+          "value": "battery"
+        },
+        {
+          "type": 3,
+          "name": "core:FirmwareRevision",
+          "value": "5145198A12"
+        },
+        {
+          "type": 3,
+          "name": "core:Manufacturer",
+          "value": "Somfy"
+        }
+      ],
+      "enabled": true,
+      "controllableName": "io:TemperatureIOSystemSensor",
+      "definition": {
+        "states": [
+          {
+            "name": "core:TemperatureState",
+            "rawStateId": "84059680"
+          },
+          {
+            "name": "core:SensorDefectState",
+            "rawStateId": "84059682"
+          },
+          {
+            "name": "core:StatusState",
+            "rawStateId": "2147426304"
+          },
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "2146500638"
+          }
+        ],
+        "widgetName": "TemperatureSensor",
+        "attributes": [
+          {
+            "name": "core:MaxSensedValue"
+          },
+          {
+            "name": "core:PowerSourceType"
+          },
+          {
+            "name": "core:MinSensedValue"
+          },
+          {
+            "name": "core:MeasuredValueType"
+          },
+          {
+            "name": "core:FirmwareRevision"
+          },
+          {
+            "name": "core:Manufacturer"
+          }
+        ],
+        "uiClass": "TemperatureSensor",
+        "commands": [
+          {
+            "nparams": 1,
+            "commandName": "advancedRefresh",
+            "paramsSig": "p1"
+          }
+        ],
+        "type": "SENSOR"
+      }
+    },
+    {
+      "deviceURL": "io://1234-5678-9012/3904805",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:DiscreteRSSILevelState",
+          "value": "good"
+        },
+        {
+          "type": 1,
+          "name": "core:RSSILevelState",
+          "value": 100
+        },
+        {
+          "type": 11,
+          "name": "core:ManufacturerSettingsState",
+          "value": {
+            "current_position": 7169
+          }
+        },
+        {
+          "type": 1,
+          "name": "core:ClosureState",
+          "value": 14
+        },
+        {
+          "type": 3,
+          "name": "core:OpenClosedState",
+          "value": "open"
+        },
+        {
+          "type": 1,
+          "name": "core:TargetClosureState",
+          "value": 14
+        },
+        {
+          "type": 1,
+          "name": "core:DeploymentState",
+          "value": 14
+        },
+        {
+          "type": 6,
+          "name": "core:MovingState",
+          "value": false
+        },
+        {
+          "type": 3,
+          "name": "core:StatusState",
+          "value": "available"
+        },
+        {
+          "type": 3,
+          "name": "core:NameState",
+          "value": "Store terrasse"
+        },
+        {
+          "type": 1,
+          "name": "core:Memorized1PositionState",
+          "value": 50
+        }
+      ],
+      "label": "Store terrasse",
+      "subsystemId": 0,
+      "attributes": [
+        {
+          "type": 10,
+          "name": "core:SupportedManufacturerSettingsCommands",
+          "value": [
+            "dead_man_up",
+            "dead_man_down",
+            "dead_man_stop",
+            "dead_man_impulse_up",
+            "dead_man_impulse_down",
+            "enter_settings_mode",
+            "save_upper_end_limit",
+            "save_lower_end_limit",
+            "stop_after_save_limit",
+            "save_settings",
+            "invert_rotation",
+            "save_my_position",
+            "delete_my_position",
+            "reset_actuator",
+            "double_power_cut",
+            "eject_from_setting_mode",
+            "enter_back_impulse_setting_mode",
+            "save_back_impulse_position"
+          ]
+        },
+        {
+          "type": 3,
+          "name": "core:Manufacturer",
+          "value": "Somfy"
+        },
+        {
+          "type": 3,
+          "name": "core:FirmwareRevision",
+          "value": "5104761X04"
+        }
+      ],
+      "enabled": true,
+      "controllableName": "io:VerticalExteriorAwningIOComponent",
+      "definition": {
+        "states": [
+          {
+            "name": "core:StatusState",
+            "rawStateId": "2147426304"
+          },
+          {
+            "name": "core:NameState",
+            "rawStateId": "1"
+          },
+          {
+            "name": "core:AdditionalStatusState",
+            "rawStateId": "2146500645"
+          },
+          {
+            "name": "core:TargetClosureState",
+            "rawStateId": "16832522"
+          },
+          {
+            "name": "core:SecuredPositionState",
+            "rawStateId": "16832522"
+          },
+          {
+            "name": "core:ManufacturerSettingsState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:ClosureState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:OpenClosedState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:DeploymentState",
+            "rawStateId": "65537"
+          },
+          {
+            "name": "core:MovingState",
+            "rawStateId": "65557"
+          },
+          {
+            "name": "core:ManufacturerDiagnosticsState",
+            "rawStateId": "2"
+          },
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "2146500638"
+          },
+          {
+            "name": "core:Memorized1PositionState",
+            "rawStateId": "16832512"
+          }
+        ],
+        "widgetName": "PositionableScreen",
+        "attributes": [
+          {
+            "name": "core:SupportedManufacturerSettingsCommands"
+          },
+          {
+            "name": "core:Manufacturer"
+          },
+          {
+            "name": "core:FirmwareRevision"
+          }
+        ],
+        "uiClass": "ExteriorScreen",
+        "commands": [
+          {
+            "commandName": "stop",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setDeployment",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "delayedStopIdentify",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 2,
+            "commandName": "runManufacturerSettingsCommand",
+            "paramsSig": "p1,p2"
+          },
+          {
+            "commandName": "down",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setClosure",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setConfigState",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "pairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "advancedRefresh",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "commandName": "unpairAllOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "refreshMemorized1Position",
+            "nparams": 0
+          },
+          {
+            "commandName": "undeploy",
+            "nparams": 0
+          },
+          {
+            "commandName": "up",
+            "nparams": 0
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "open",
+            "nparams": 0
+          },
+          {
+            "commandName": "deploy",
+            "nparams": 0
+          },
+          {
+            "commandName": "keepOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "sendIOKey",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setMemorized1Position",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "wink",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "close",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setName",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "nparams": 1,
+            "commandName": "unpairOneWayController",
+            "paramsSig": "p1,*p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "setSecuredPosition",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "my",
+            "nparams": 0
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          }
+        ],
+        "type": "ACTUATOR"
+      }
+    },
+    {
+      "deviceURL": "zigbee://1234-5678-9012/0/1",
+      "available": true,
+      "synced": true,
+      "type": 5,
+      "states": [],
+      "label": "Zigbee",
+      "subsystemId": 0,
+      "attributes": [
+        {
+          "type": 3,
+          "name": "zigbee:Role",
+          "value": "coordinator"
+        },
+        {
+          "type": 1,
+          "name": "zigbee:RadioChannel",
+          "value": 20
+        },
+        {
+          "type": 3,
+          "name": "core:MacAddress",
+          "value": "PqZA/v+B9ow="
+        }
+      ],
+      "enabled": true,
+      "controllableName": "zigbee:StackV3Component",
+      "definition": {
+        "states": [
+          {
+            "name": "core:DiscreteRSSILevelState",
+            "rawStateId": "Rssi"
+          },
+          {
+            "name": "core:RSSILevelState",
+            "rawStateId": "Rssi"
+          },
+          {
+            "name": "core:ManufacturerNameState"
+          },
+          {
+            "name": "core:ProductModelNameState"
+          },
+          {
+            "name": "zigbee:LinkQualityIndicatorState",
+            "rawStateId": "Lqi"
+          }
+        ],
+        "widgetName": "ZigbeeStack",
+        "attributes": [
+          {
+            "name": "zigbee:Role"
+          },
+          {
+            "name": "core:ManufacturerId"
+          },
+          {
+            "name": "zigbee:RadioChannel"
+          },
+          {
+            "name": "core:MacAddress"
+          }
+        ],
+        "uiClass": "ProtocolGateway",
+        "commands": [
+          {
+            "commandName": "openNetworkWithCommissioningManagement",
+            "nparams": 0
+          },
+          {
+            "commandName": "closeNetworkManagement",
+            "nparams": 0
+          },
+          {
+            "nparams": 2,
+            "commandName": "unbind",
+            "paramsSig": "p1,p2"
+          },
+          {
+            "commandName": "refreshNetwork",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "openNetwork",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "closeNetwork",
+            "nparams": 0
+          },
+          {
+            "commandName": "openNetworkManagement",
+            "nparams": 0
+          },
+          {
+            "commandName": "bindingNetwork",
+            "nparams": 0
+          },
+          {
+            "nparams": 2,
+            "commandName": "bind",
+            "paramsSig": "p1,p2"
+          }
+        ],
+        "type": "PROTOCOL_GATEWAY"
+      }
+    },
+    {
+      "creationTime": 1686173907452,
+      "deviceURL": "rts://1234-5678-9012/16757362",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [],
+      "label": "Rideau salon",
+      "definition": {
+        "states": [],
+        "widgetName": "UpDownDualCurtain",
+        "attributes": [],
+        "uiClass": "Curtain",
+        "commands": [
+          {
+            "nparams": 0,
+            "commandName": "stop",
+            "paramsSig": "*p1"
+          },
+          {
+            "commandName": "test",
+            "nparams": 0
+          },
+          {
+            "nparams": 0,
+            "commandName": "open",
+            "paramsSig": "*p1"
+          },
+          {
+            "nparams": 0,
+            "commandName": "close",
+            "paramsSig": "*p1"
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "nparams": 0,
+            "commandName": "up",
+            "paramsSig": "*p1"
+          },
+          {
+            "nparams": 0,
+            "commandName": "down",
+            "paramsSig": "*p1"
+          },
+          {
+            "nparams": 0,
+            "commandName": "my",
+            "paramsSig": "*p1"
+          },
+          {
+            "nparams": 0,
+            "commandName": "openConfiguration",
+            "paramsSig": "*p1"
+          },
+          {
+            "nparams": 0,
+            "commandName": "rest",
+            "paramsSig": "*p1"
+          }
+        ],
+        "type": "ACTUATOR"
+      },
+      "attributes": [],
+      "enabled": true,
+      "controllableName": "rts:DualCurtainRTSComponent",
+      "subsystemId": 0
+    },
+    {
+      "deviceURL": "io://1234-5678-9012/11754455",
+      "available": true,
+      "synced": true,
+      "type": 5,
+      "states": [],
+      "label": "IO",
+      "subsystemId": 0,
+      "attributes": [],
+      "enabled": true,
+      "controllableName": "io:StackComponent",
+      "definition": {
+        "states": [],
+        "widgetName": "IOStack",
+        "attributes": [],
+        "uiClass": "ProtocolGateway",
+        "commands": [
+          {
+            "nparams": 1,
+            "commandName": "discoverActuators",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "joinNetwork",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "advancedSomfyDiscover",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "resetNetworkSecurity",
+            "nparams": 0
+          },
+          {
+            "commandName": "shareNetwork",
+            "nparams": 0
+          },
+          {
+            "nparams": 0,
+            "commandName": "discover1WayController",
+            "paramsSig": "*p1,*p2"
+          },
+          {
+            "nparams": 1,
+            "commandName": "discoverSensors",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "discoverSomfyUnsetActuators",
+            "nparams": 0
+          }
+        ],
+        "type": "PROTOCOL_GATEWAY"
+      }
+    },
+    {
+      "deviceURL": "internal://1234-5678-9012/pod/0",
+      "available": true,
+      "synced": true,
+      "type": 1,
+      "states": [
+        {
+          "type": 3,
+          "name": "core:NameState",
+          "value": "TaHoma"
+        },
+        {
+          "type": 3,
+          "name": "core:CountryCodeState",
+          "value": "BE"
+        },
+        {
+          "type": 1,
+          "name": "internal:LightingLedPodModeState",
+          "value": 1
+        },
+        {
+          "type": 3,
+          "name": "core:ConnectivityState",
+          "value": "online"
+        },
+        {
+          "type": 3,
+          "name": "core:LocalIPv4AddressState",
+          "value": "192.168.178.32"
+        }
+      ],
+      "label": "TaHoma",
+      "subsystemId": 0,
+      "attributes": [],
+      "enabled": true,
+      "controllableName": "internal:PodV3Component",
+      "definition": {
+        "states": [
+          {
+            "name": "core:ConnectivityState",
+            "rawStateId": "networkConnectivity"
+          },
+          {
+            "name": "core:LocalAccessProofState",
+            "rawStateId": "localAccessProof"
+          },
+          {
+            "name": "internal:Button2State",
+            "rawStateId": "button2"
+          },
+          {
+            "name": "core:LocalIPv4AddressState",
+            "rawStateId": "ip"
+          },
+          {
+            "name": "core:CountryCodeState",
+            "rawStateId": "countryCode"
+          },
+          {
+            "name": "internal:Button3State",
+            "rawStateId": "button3"
+          },
+          {
+            "name": "internal:LightingLedPodModeState",
+            "rawStateId": "lightingLedPodMode"
+          },
+          {
+            "name": "core:NameState",
+            "rawStateId": "name"
+          },
+          {
+            "name": "internal:Button1State",
+            "rawStateId": "button1"
+          }
+        ],
+        "widgetName": "Pod",
+        "attributes": [],
+        "uiClass": "Pod",
+        "commands": [
+          {
+            "commandName": "deactivateCalendar",
+            "nparams": 0
+          },
+          {
+            "commandName": "refreshPodMode",
+            "nparams": 0
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "commandName": "setPodLedOff",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setCalendar",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "setPodLedOn",
+            "nparams": 0
+          },
+          {
+            "commandName": "activateCalendar",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setLightingLedPodMode",
+            "paramsSig": "p1"
+          },
+          {
+            "commandName": "update",
+            "nparams": 0
+          },
+          {
+            "commandName": "refreshUpdateStatus",
+            "nparams": 0
+          },
+          {
+            "nparams": 1,
+            "commandName": "setCountryCode",
+            "paramsSig": "p1"
+          }
+        ],
+        "type": "ACTUATOR"
+      }
+    },
+    {
+      "creationTime": 1613676516000,
+      "lastUpdateTime": 1613676516000,
+      "label": "Volet cuisine (RTS)",
+      "deviceURL": "rts://1234-5678-9012/16730022",
+      "shortcut": false,
+      "controllableName": "rts:RollerShutterRTSComponent",
+      "definition": {
+        "commands": [
+          {
+            "commandName": "close",
+            "nparams": 1
+          },
+          {
+            "commandName": "down",
+            "nparams": 1
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "commandName": "my",
+            "nparams": 1
+          },
+          {
+            "commandName": "open",
+            "nparams": 1
+          },
+          {
+            "commandName": "rest",
+            "nparams": 1
+          },
+          {
+            "commandName": "stop",
+            "nparams": 1
+          },
+          {
+            "commandName": "test",
+            "nparams": 0
+          },
+          {
+            "commandName": "up",
+            "nparams": 1
+          },
+          {
+            "commandName": "openConfiguration",
+            "nparams": 1
+          }
+        ],
+        "states": [],
+        "dataProperties": [
+          {
+            "value": "0",
+            "qualifiedName": "core:identifyInterval"
+          }
+        ],
+        "widgetName": "UpDownRollerShutter",
+        "uiProfiles": ["OpenCloseShutter", "OpenClose"],
+        "uiClass": "RollerShutter",
+        "qualifiedName": "rts:RollerShutterRTSComponent",
+        "type": "ACTUATOR"
+      },
+      "attributes": [
+        {
+          "name": "rts:diy",
+          "type": 6,
+          "value": false
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "6133b4a0-f514-4553-b635-d1b7beb7e7b2",
+      "widget": "UpDownRollerShutter",
+      "type": 1,
+      "oid": "d4da34c9-5cbf-4278-b8ec-ae66428b9522",
+      "uiClass": "RollerShutter"
+    },
+    {
+      "creationTime": 1638877341000,
+      "lastUpdateTime": 1638877341000,
+      "label": "Prise piscine",
+      "deviceURL": "io://1234-5678-9012/10042836",
+      "shortcut": false,
+      "controllableName": "io:OnOffIOComponent",
+      "definition": {
+        "commands": [
+          {
+            "commandName": "advancedRefresh",
+            "nparams": 1
+          },
+          {
+            "commandName": "delayedStopIdentify",
+            "nparams": 1
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "commandName": "off",
+            "nparams": 0
+          },
+          {
+            "commandName": "on",
+            "nparams": 0
+          },
+          {
+            "commandName": "onWithTimer",
+            "nparams": 1
+          },
+          {
+            "commandName": "setName",
+            "nparams": 1
+          },
+          {
+            "commandName": "setOnOff",
+            "nparams": 1
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "wink",
+            "nparams": 1
+          },
+          {
+            "commandName": "pairOneWayController",
+            "nparams": 2
+          },
+          {
+            "commandName": "setConfigState",
+            "nparams": 1
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairOneWayController",
+            "nparams": 2
+          }
+        ],
+        "states": [
+          {
+            "type": "DiscreteState",
+            "values": ["good", "low", "normal", "verylow"],
+            "qualifiedName": "core:DiscreteRSSILevelState"
+          },
+          {
+            "type": "DataState",
+            "qualifiedName": "core:NameState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["off", "on"],
+            "qualifiedName": "core:OnOffState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:PriorityLockTimerState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:RSSILevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["available", "unavailable"],
+            "qualifiedName": "core:StatusState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "comfortLevel1",
+              "comfortLevel2",
+              "comfortLevel3",
+              "comfortLevel4",
+              "environmentProtection",
+              "humanProtection",
+              "userLevel1",
+              "userLevel2"
+            ],
+            "qualifiedName": "io:PriorityLockLevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "LSC",
+              "SAAC",
+              "SFC",
+              "UPS",
+              "externalGateway",
+              "localUser",
+              "myself",
+              "rain",
+              "security",
+              "temperature",
+              "timer",
+              "user",
+              "wind"
+            ],
+            "qualifiedName": "io:PriorityLockOriginatorState"
+          }
+        ],
+        "dataProperties": [
+          {
+            "value": "500",
+            "qualifiedName": "core:identifyInterval"
+          }
+        ],
+        "widgetName": "StatefulOnOff",
+        "uiProfiles": ["StatefulSwitchablePlug", "StatefulSwitchable", "Switchable"],
+        "uiClass": "OnOff",
+        "qualifiedName": "io:OnOffIOComponent",
+        "type": "ACTUATOR"
+      },
+      "states": [
+        {
+          "name": "core:NameState",
+          "type": 3,
+          "value": "Prise piscine"
+        },
+        {
+          "name": "core:PriorityLockTimerState",
+          "type": 1,
+          "value": 0
+        },
+        {
+          "name": "core:StatusState",
+          "type": 3,
+          "value": "unavailable"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "type": 3,
+          "value": "normal"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "type": 2,
+          "value": 70.0
+        },
+        {
+          "name": "core:OnOffState",
+          "type": 3,
+          "value": "off"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:FirmwareRevision",
+          "type": 3,
+          "value": "5136974A05"
+        },
+        {
+          "name": "core:Manufacturer",
+          "type": 3,
+          "value": "Somfy"
+        }
+      ],
+      "available": false,
+      "enabled": true,
+      "placeOID": "fc96b4ed-c317-47a2-9d0a-c62cb35be11d",
+      "widget": "StatefulOnOff",
+      "type": 1,
+      "oid": "05d92547-e1b7-4db9-9e8b-bf8da1eedf5e",
+      "uiClass": "OnOff"
+    },
+    {
+      "creationTime": 1617792361000,
+      "lastUpdateTime": 1617792361000,
+      "label": "Capteur soleil",
+      "deviceURL": "io://1234-5678-9012/2711689",
+      "shortcut": false,
+      "controllableName": "io:LightIOSystemSensor",
+      "definition": {
+        "commands": [
+          {
+            "commandName": "advancedRefresh",
+            "nparams": 1
+          }
+        ],
+        "states": [
+          {
+            "type": "DiscreteState",
+            "values": ["good", "low", "normal", "verylow"],
+            "qualifiedName": "core:DiscreteRSSILevelState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:LuminanceState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:RSSILevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["dead", "lowBattery", "maintenanceRequired", "noDefect"],
+            "qualifiedName": "core:SensorDefectState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["available", "unavailable"],
+            "qualifiedName": "core:StatusState"
+          }
+        ],
+        "dataProperties": [
+          {
+            "value": {
+              "activationDelayMap": {
+                "middle": 0,
+                "lower": 1200,
+                "upper": 300
+              },
+              "referenceStates": ["middle", "lower", "upper"],
+              "qualifiedName": "io:SunSensorHysteresisBehavior"
+            },
+            "qualifiedName": "core:timeBasedHysteresisBehavior"
+          }
+        ],
+        "widgetName": "LuminanceSensor",
+        "uiProfiles": ["Luminance"],
+        "uiClass": "LightSensor",
+        "qualifiedName": "io:LightIOSystemSensor",
+        "type": "SENSOR"
+      },
+      "states": [
+        {
+          "name": "core:StatusState",
+          "type": 3,
+          "value": "available"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "type": 3,
+          "value": "normal"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "type": 2,
+          "value": 44.0
+        },
+        {
+          "name": "core:LuminanceState",
+          "type": 2,
+          "value": 589.0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:Manufacturer",
+          "type": 3,
+          "value": "Somfy"
+        },
+        {
+          "name": "core:FirmwareRevision",
+          "type": 3,
+          "value": "5126936A15"
+        },
+        {
+          "name": "core:MaxSensedValue",
+          "type": 1,
+          "value": 100000
+        },
+        {
+          "name": "core:MeasuredValueType",
+          "type": 3,
+          "value": "core:LuminanceInLux"
+        },
+        {
+          "name": "core:MinSensedValue",
+          "type": 1,
+          "value": 50
+        },
+        {
+          "name": "core:PowerSourceType",
+          "type": 3,
+          "value": "battery"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "3db21e3a-1d83-486a-9ca2-7642127ad98d",
+      "widget": "LuminanceSensor",
+      "type": 2,
+      "oid": "9f214030-3ba1-40e1-8ff7-07ea6c9b79c2",
+      "uiClass": "LightSensor"
+    },
+    {
+      "creationTime": 1623168927000,
+      "lastUpdateTime": 1623168927000,
+      "label": "Porte entrée",
+      "deviceURL": "rtds://1234-5678-9012/347675",
+      "shortcut": false,
+      "controllableName": "rtds:RTDSContactSensor",
+      "definition": {
+        "commands": [],
+        "states": [
+          {
+            "type": "DiscreteState",
+            "values": ["closed", "open"],
+            "qualifiedName": "core:ContactState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["dead", "lowBattery", "maintenanceRequired", "noDefect"],
+            "qualifiedName": "core:SensorDefectState"
+          }
+        ],
+        "dataProperties": [],
+        "widgetName": "ContactSensor",
+        "uiProfiles": ["DoorContactSensor", "ContactDetector"],
+        "uiClass": "ContactSensor",
+        "qualifiedName": "rtds:RTDSContactSensor",
+        "type": "SENSOR"
+      },
+      "states": [
+        {
+          "name": "core:ContactState",
+          "type": 3,
+          "value": "closed"
+        },
+        {
+          "name": "core:SensorDefectState",
+          "type": 3,
+          "value": "lowBattery"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:PowerSourceType",
+          "type": 3,
+          "value": "battery"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "308eceb5-7287-4b53-b52f-5e2aa3287ee5",
+      "widget": "ContactSensor",
+      "type": 2,
+      "oid": "abca272c-9731-4be8-9522-eff9ed6b551c",
+      "uiClass": "ContactSensor"
+    },
+    {
+      "creationTime": 1625074651000,
+      "lastUpdateTime": 1625074651000,
+      "label": "Détecteur fumée",
+      "deviceURL": "rtds://1234-5678-9012/718128",
+      "shortcut": false,
+      "controllableName": "rtds:RTDSSmokeSensor",
+      "definition": {
+        "commands": [],
+        "states": [
+          {
+            "type": "DiscreteState",
+            "values": ["dead", "lowBattery", "maintenanceRequired", "noDefect"],
+            "qualifiedName": "core:SensorDefectState"
+          },
+          {
+            "eventBased": true,
+            "type": "DiscreteState",
+            "values": ["detected", "notDetected"],
+            "qualifiedName": "core:SmokeState"
+          }
+        ],
+        "dataProperties": [],
+        "widgetName": "SmokeSensor",
+        "uiProfiles": ["SmokeDetector"],
+        "uiClass": "SmokeSensor",
+        "qualifiedName": "rtds:RTDSSmokeSensor",
+        "type": "SENSOR"
+      },
+      "states": [
+        {
+          "name": "core:SmokeState",
+          "type": 3,
+          "value": "notDetected"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:PowerSourceType",
+          "type": 3,
+          "value": "battery"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "fc96b4ed-c317-47a2-9d0a-c62cb35be11d",
+      "widget": "SmokeSensor",
+      "type": 2,
+      "oid": "110dcafe-1c41-469b-a0b4-0e0e184659f3",
+      "uiClass": "SmokeSensor"
+    },
+    {
+      "creationTime": 1552163547000,
+      "lastUpdateTime": 1552163547000,
+      "label": "Volet séjour",
+      "deviceURL": "io://1234-5678-9012/12184029",
+      "shortcut": false,
+      "controllableName": "io:RollerShutterGenericIOComponent",
+      "definition": {
+        "commands": [
+          {
+            "commandName": "advancedRefresh",
+            "nparams": 1
+          },
+          {
+            "commandName": "close",
+            "nparams": 0
+          },
+          {
+            "commandName": "delayedStopIdentify",
+            "nparams": 1
+          },
+          {
+            "commandName": "down",
+            "nparams": 0
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "commandName": "my",
+            "nparams": 0
+          },
+          {
+            "commandName": "open",
+            "nparams": 0
+          },
+          {
+            "commandName": "refreshMemorized1Position",
+            "nparams": 0
+          },
+          {
+            "commandName": "setClosure",
+            "nparams": 1
+          },
+          {
+            "commandName": "setDeployment",
+            "nparams": 1
+          },
+          {
+            "commandName": "setMemorized1Position",
+            "nparams": 1
+          },
+          {
+            "commandName": "setName",
+            "nparams": 1
+          },
+          {
+            "commandName": "setPosition",
+            "nparams": 1
+          },
+          {
+            "commandName": "setSecuredPosition",
+            "nparams": 1
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stop",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "up",
+            "nparams": 0
+          },
+          {
+            "commandName": "wink",
+            "nparams": 1
+          },
+          {
+            "commandName": "runManufacturerSettingsCommand",
+            "nparams": 2
+          },
+          {
+            "commandName": "keepOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "pairOneWayController",
+            "nparams": 2
+          },
+          {
+            "commandName": "sendIOKey",
+            "nparams": 0
+          },
+          {
+            "commandName": "setConfigState",
+            "nparams": 1
+          },
+          {
+            "commandName": "unpairAllOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairOneWayController",
+            "nparams": 2
+          }
+        ],
+        "states": [
+          {
+            "type": "DataState",
+            "qualifiedName": "core:AdditionalStatusState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:ClosureState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["good", "low", "normal", "verylow"],
+            "qualifiedName": "core:DiscreteRSSILevelState"
+          },
+          {
+            "type": "DataState",
+            "qualifiedName": "core:ManufacturerSettingsState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:Memorized1PositionState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["false", "true"],
+            "qualifiedName": "core:MovingState"
+          },
+          {
+            "type": "DataState",
+            "qualifiedName": "core:NameState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["closed", "open"],
+            "qualifiedName": "core:OpenClosedState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:PriorityLockTimerState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:RSSILevelState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:SecuredPositionState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["available", "unavailable"],
+            "qualifiedName": "core:StatusState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:TargetClosureState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "comfortLevel1",
+              "comfortLevel2",
+              "comfortLevel3",
+              "comfortLevel4",
+              "environmentProtection",
+              "humanProtection",
+              "userLevel1",
+              "userLevel2"
+            ],
+            "qualifiedName": "io:PriorityLockLevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "LSC",
+              "SAAC",
+              "SFC",
+              "UPS",
+              "externalGateway",
+              "localUser",
+              "myself",
+              "rain",
+              "security",
+              "temperature",
+              "timer",
+              "user",
+              "wind"
+            ],
+            "qualifiedName": "io:PriorityLockOriginatorState"
+          }
+        ],
+        "dataProperties": [
+          {
+            "value": "500",
+            "qualifiedName": "core:identifyInterval"
+          }
+        ],
+        "widgetName": "PositionableRollerShutter",
+        "uiProfiles": [
+          "StatefulCloseableShutter",
+          "StatefulCloseable",
+          "Closeable",
+          "StatefulOpenClose",
+          "OpenClose"
+        ],
+        "uiClass": "RollerShutter",
+        "qualifiedName": "io:RollerShutterGenericIOComponent",
+        "type": "ACTUATOR"
+      },
+      "states": [
+        {
+          "name": "core:NameState",
+          "type": 3,
+          "value": "Volet séjour"
+        },
+        {
+          "name": "core:PriorityLockTimerState",
+          "type": 1,
+          "value": 0
+        },
+        {
+          "name": "core:StatusState",
+          "type": 3,
+          "value": "available"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "type": 3,
+          "value": "good"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "type": 2,
+          "value": 98.0
+        },
+        {
+          "name": "core:MovingState",
+          "type": 6,
+          "value": false
+        },
+        {
+          "name": "core:ClosureState",
+          "type": 1,
+          "value": 100
+        },
+        {
+          "name": "core:OpenClosedState",
+          "type": 3,
+          "value": "closed"
+        },
+        {
+          "name": "core:Memorized1PositionState",
+          "type": 1,
+          "value": 86
+        },
+        {
+          "name": "core:TargetClosureState",
+          "type": 1,
+          "value": 100
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:SupportedManufacturerSettingsCommands",
+          "type": 10,
+          "value": [
+            "dead_man_up",
+            "dead_man_down",
+            "dead_man_stop",
+            "dead_man_impulse_up",
+            "dead_man_impulse_down",
+            "enter_settings_mode",
+            "save_upper_end_limit",
+            "save_lower_end_limit",
+            "stop_after_save_limit",
+            "save_settings",
+            "invert_rotation",
+            "save_my_position",
+            "delete_my_position",
+            "reset_actuator",
+            "double_power_cut",
+            "eject_from_setting_mode"
+          ]
+        },
+        {
+          "name": "core:FirmwareRevision",
+          "type": 3,
+          "value": "5100394X23?"
+        },
+        {
+          "name": "core:Manufacturer",
+          "type": 3,
+          "value": "Somfy"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "f4f6bdb1-3228-4da2-8312-7a19f4ef3b55",
+      "widget": "PositionableRollerShutter",
+      "type": 1,
+      "oid": "e62870b2-0c90-41d7-a188-7972ea373299",
+      "uiClass": "RollerShutter"
+    },
+    {
+      "creationTime": 1521964729000,
+      "lastUpdateTime": 1521964729000,
+      "label": "Porte de garage",
+      "deviceURL": "io://1234-5678-9012/1166863",
+      "shortcut": false,
+      "controllableName": "io:GarageOpenerIOComponent",
+      "definition": {
+        "commands": [
+          {
+            "commandName": "advancedRefresh",
+            "nparams": 1
+          },
+          {
+            "commandName": "close",
+            "nparams": 0
+          },
+          {
+            "commandName": "delayedStopIdentify",
+            "nparams": 1
+          },
+          {
+            "commandName": "down",
+            "nparams": 0
+          },
+          {
+            "commandName": "getName",
+            "nparams": 0
+          },
+          {
+            "commandName": "identify",
+            "nparams": 0
+          },
+          {
+            "commandName": "open",
+            "nparams": 0
+          },
+          {
+            "commandName": "setClosure",
+            "nparams": 1
+          },
+          {
+            "commandName": "setName",
+            "nparams": 1
+          },
+          {
+            "commandName": "startIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "stop",
+            "nparams": 0
+          },
+          {
+            "commandName": "stopIdentify",
+            "nparams": 0
+          },
+          {
+            "commandName": "up",
+            "nparams": 0
+          },
+          {
+            "commandName": "wink",
+            "nparams": 1
+          },
+          {
+            "commandName": "runManufacturerSettingsCommand",
+            "nparams": 2
+          },
+          {
+            "commandName": "keepOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "pairOneWayController",
+            "nparams": 2
+          },
+          {
+            "commandName": "sendIOKey",
+            "nparams": 0
+          },
+          {
+            "commandName": "setConfigState",
+            "nparams": 1
+          },
+          {
+            "commandName": "unpairAllOneWayControllersAndDeleteNode",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairAllOneWayControllers",
+            "nparams": 0
+          },
+          {
+            "commandName": "unpairOneWayController",
+            "nparams": 2
+          }
+        ],
+        "states": [
+          {
+            "type": "DataState",
+            "qualifiedName": "core:AdditionalStatusState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:ClosureState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["good", "low", "normal", "verylow"],
+            "qualifiedName": "core:DiscreteRSSILevelState"
+          },
+          {
+            "type": "DataState",
+            "qualifiedName": "core:ManufacturerSettingsState"
+          },
+          {
+            "type": "DataState",
+            "qualifiedName": "core:NameState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["closed", "open", "unknown"],
+            "qualifiedName": "core:OpenClosedUnknownState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:PriorityLockTimerState"
+          },
+          {
+            "type": "ContinuousState",
+            "qualifiedName": "core:RSSILevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["available", "unavailable"],
+            "qualifiedName": "core:StatusState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "comfortLevel1",
+              "comfortLevel2",
+              "comfortLevel3",
+              "comfortLevel4",
+              "environmentProtection",
+              "humanProtection",
+              "userLevel1",
+              "userLevel2"
+            ],
+            "qualifiedName": "io:PriorityLockLevelState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": [
+              "LSC",
+              "SAAC",
+              "SFC",
+              "UPS",
+              "externalGateway",
+              "localUser",
+              "myself",
+              "rain",
+              "security",
+              "temperature",
+              "timer",
+              "user",
+              "wind"
+            ],
+            "qualifiedName": "io:PriorityLockOriginatorState"
+          }
+        ],
+        "dataProperties": [
+          {
+            "value": "500",
+            "qualifiedName": "core:identifyInterval"
+          }
+        ],
+        "widgetName": "PositionableGarageDoor",
+        "uiProfiles": [
+          "StatefulCloseableGarageOpener",
+          "StatefulCloseable",
+          "Closeable",
+          "OpenClose"
+        ],
+        "uiClass": "GarageDoor",
+        "qualifiedName": "io:GarageOpenerIOComponent",
+        "type": "ACTUATOR"
+      },
+      "states": [
+        {
+          "name": "core:NameState",
+          "type": 3,
+          "value": "* *"
+        },
+        {
+          "name": "core:PriorityLockTimerState",
+          "type": 1,
+          "value": 0
+        },
+        {
+          "name": "core:StatusState",
+          "type": 3,
+          "value": "available"
+        },
+        {
+          "name": "core:DiscreteRSSILevelState",
+          "type": 3,
+          "value": "normal"
+        },
+        {
+          "name": "core:RSSILevelState",
+          "type": 2,
+          "value": 80.0
+        },
+        {
+          "name": "core:ClosureState",
+          "type": 1,
+          "value": 100
+        },
+        {
+          "name": "core:OpenClosedUnknownState",
+          "type": 3,
+          "value": "closed"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:FirmwareRevision",
+          "type": 3,
+          "value": "5047247X47?"
+        },
+        {
+          "name": "core:Manufacturer",
+          "type": 3,
+          "value": "Somfy"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "bcbb34ef-2241-43a1-9c5b-523aa0563ec3",
+      "widget": "PositionableGarageDoor",
+      "type": 1,
+      "oid": "0df95043-359c-4b3d-9147-f49b2b35053c",
+      "uiClass": "GarageDoor"
+    },
+    {
+      "creationTime": 1501224458000,
+      "lastUpdateTime": 1501224458000,
+      "label": "Détecteur couloir",
+      "deviceURL": "rtds://1234-5678-9012/232949",
+      "shortcut": false,
+      "controllableName": "rtds:RTDSMotionSensor",
+      "definition": {
+        "commands": [],
+        "states": [
+          {
+            "eventBased": true,
+            "type": "DiscreteState",
+            "values": ["noPersonInside", "personInside"],
+            "qualifiedName": "core:OccupancyState"
+          },
+          {
+            "type": "DiscreteState",
+            "values": ["dead", "lowBattery", "maintenanceRequired", "noDefect"],
+            "qualifiedName": "core:SensorDefectState"
+          }
+        ],
+        "dataProperties": [],
+        "widgetName": "MotionSensor",
+        "uiProfiles": ["OccupancyDetector"],
+        "uiClass": "OccupancySensor",
+        "qualifiedName": "rtds:RTDSMotionSensor",
+        "type": "SENSOR"
+      },
+      "states": [
+        {
+          "name": "core:OccupancyState",
+          "type": 3,
+          "value": "noPersonInside"
+        }
+      ],
+      "attributes": [
+        {
+          "name": "core:PowerSourceType",
+          "type": 3,
+          "value": "battery"
+        }
+      ],
+      "available": true,
+      "enabled": true,
+      "placeOID": "bcbb34ef-2241-43a1-9c5b-523aa0563ec3",
+      "widget": "MotionSensor",
+      "type": 2,
+      "oid": "20171297-8c25-4107-ba0b-d750288e04d1",
+      "uiClass": "OccupancySensor"
+    }
+  ]
+}

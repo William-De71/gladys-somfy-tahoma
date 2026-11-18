@@ -1,0 +1,423 @@
+{
+  "devices": [
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-3000744-1",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-3000744-1:battery",
+          "category": "battery",
+          "type": "integer",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-15097783",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-15097783:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-15097783:position",
+          "category": "shutter",
+          "type": "position",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-1170079",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-1170079:light",
+          "category": "light",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-1170079:brightness",
+          "category": "light",
+          "type": "brightness",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-1292684-2",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-1292684-2:temperature",
+          "category": "temperature-sensor",
+          "type": "decimal",
+          "unit": "celsius",
+          "min": -50,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-3904805",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-3904805:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-3904805:position",
+          "category": "shutter",
+          "type": "position",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:rts-1234-5678-9012-16757362",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:rts-1234-5678-9012-16757362:state",
+          "category": "curtain",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:rts-1234-5678-9012-16730022",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:rts-1234-5678-9012-16730022:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-10042836",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-10042836:switch",
+          "category": "switch",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-2711689",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-2711689:luminance",
+          "category": "light-sensor",
+          "type": "decimal",
+          "unit": "lux",
+          "min": 0,
+          "max": 200000
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:rtds-1234-5678-9012-347675",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:rtds-1234-5678-9012-347675:contact",
+          "category": "opening-sensor",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:rtds-1234-5678-9012-718128",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:rtds-1234-5678-9012-718128:smoke",
+          "category": "smoke-sensor",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-12184029",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-12184029:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-12184029:position",
+          "category": "shutter",
+          "type": "position",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-1166863",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-1166863:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-1166863:position",
+          "category": "shutter",
+          "type": "position",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:rtds-1234-5678-9012-232949",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:rtds-1234-5678-9012-232949:motion",
+          "category": "motion-sensor",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
+    }
+  ],
+  "config": [
+    {
+      "key": "intro",
+      "type": "section"
+    },
+    {
+      "key": "region",
+      "type": "select",
+      "values": ["europe", "north_america", "oceania"]
+    },
+    {
+      "key": "username",
+      "type": "string"
+    },
+    {
+      "key": "password",
+      "type": "secret"
+    },
+    {
+      "key": "local_intro",
+      "type": "section"
+    },
+    {
+      "key": "local_token",
+      "type": "secret"
+    },
+    {
+      "key": "local_host",
+      "type": "string"
+    },
+    {
+      "key": "gateway_pin",
+      "type": "string"
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "values": ["en", "fr", "de", "es"]
+    }
+  ],
+  "actions": ["test_connection", "enable_local"],
+  "widgets": [
+    {
+      "key": "cover",
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices"
+        }
+      ]
+    },
+    {
+      "key": "overview",
+      "settings": []
+    },
+    {
+      "key": "scenarios",
+      "settings": [
+        {
+          "key": "names",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "command_failed",
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices"
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string"
+        },
+        {
+          "key": "failure_type",
+          "type": "string"
+        },
+        {
+          "key": "label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "key": "device_availability_changed",
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices"
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "values": ["unavailable", "available"]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "key": "box_connection_changed",
+      "fields": [
+        {
+          "key": "state",
+          "type": "select",
+          "values": ["offline", "online"]
+        }
+      ],
+      "variables": [
+        {
+          "key": "transport",
+          "type": "string"
+        },
+        {
+          "key": "pin",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "run_scenario",
+      "fields": [
+        {
+          "key": "scenario",
+          "type": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "key": "exec_id",
+          "type": "string"
+        },
+        {
+          "key": "scenario",
+          "type": "string"
+        },
+        {
+          "key": "transport",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "key": "send_command",
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices"
+        },
+        {
+          "key": "command",
+          "type": "select",
+          "values": ["open", "close", "stop", "my", "identify"]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "exec_id",
+          "type": "string"
+        },
+        {
+          "key": "transport",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

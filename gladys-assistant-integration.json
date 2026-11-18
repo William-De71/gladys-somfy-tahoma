@@ -1,0 +1,772 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "Somfy TaHoma",
+  "description": {
+    "en": "Somfy TaHoma box: covers, lights, plugs and sensors, on the local network or via the cloud.",
+    "fr": "Box Somfy TaHoma : volets, lumières, prises et capteurs, en local ou via le cloud.",
+    "de": "Somfy-TaHoma-Box: Rollläden, Licht, Steckdosen, Sensoren, lokal oder über die Cloud.",
+    "es": "Caja Somfy TaHoma: persianas, luces, enchufes y sensores, en local o por la nube."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-somfy-tahoma:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-somfy-tahoma/main/cover.jpg",
+  "categories": ["lighting", "protocols"],
+  "keywords": [
+    "somfy",
+    "tahoma",
+    "tahoma switch",
+    "connexoon",
+    "overkiz",
+    "io-homecontrol",
+    "rts",
+    "volet roulant",
+    "roller shutter",
+    "store banne"
+  ],
+  "transports": ["local", "cloud"],
+  "network_discovery": [
+    {
+      "type": "mdns",
+      "service": "_kizboxdev._tcp"
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "timeout_seconds": 60,
+      "label": {
+        "en": "Test the connection",
+        "fr": "Tester la connexion",
+        "de": "Verbindung testen",
+        "es": "Probar la conexión"
+      },
+      "description": {
+        "en": "Connects again (local first if preferred), then tells which channel reaches the box, how many devices it offers and how many TaHoma scenarios were read.",
+        "fr": "Se reconnecte (en local d’abord si c’est la préférence), puis indique par quel canal la box répond, combien d’appareils elle propose et combien de scénarios TaHoma ont été lus.",
+        "de": "Verbindet sich neu (zuerst lokal, wenn bevorzugt) und zeigt, über welchen Kanal die Box antwortet, wie viele Geräte sie anbietet und wie viele TaHoma-Szenarien gelesen wurden.",
+        "es": "Se vuelve a conectar (primero en local si es la preferencia) e indica por qué canal responde la caja, cuántos dispositivos ofrece y cuántos escenarios TaHoma se han leído."
+      }
+    },
+    {
+      "key": "enable_local",
+      "timeout_seconds": 90,
+      "label": {
+        "en": "Enable the local mode",
+        "fr": "Activer le mode local",
+        "de": "Lokalen Modus aktivieren",
+        "es": "Activar el modo local"
+      },
+      "description": {
+        "en": "Through your TaHoma account: turns the Developer Mode of the box on and creates a local token named “Gladys Assistant”. Gladys then drives the box on the local network, the cloud staying the fallback.",
+        "fr": "Via votre compte TaHoma : allume le mode développeur de la box et crée un jeton local nommé « Gladys Assistant ». Gladys pilote ensuite la box sur le réseau local, le cloud restant la solution de repli.",
+        "de": "Über Ihr TaHoma-Konto: schaltet den Entwicklermodus der Box ein und erstellt ein lokales Token namens „Gladys Assistant“. Gladys steuert die Box dann im lokalen Netzwerk, die Cloud bleibt die Ausweichlösung.",
+        "es": "A través de su cuenta TaHoma: enciende el modo desarrollador de la caja y crea un token local llamado «Gladys Assistant». Gladys controla después la caja en la red local, con la nube como respaldo."
+      }
+    }
+  ],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Your TaHoma account",
+        "fr": "Votre compte TaHoma",
+        "de": "Ihr TaHoma-Konto",
+        "es": "Su cuenta TaHoma"
+      },
+      "description": {
+        "en": "For a TaHoma, TaHoma Switch or Connexoon box. With the e-mail and password of the TaHoma app, Gladys reaches the box through the Somfy cloud, reads your TaHoma scenarios and can enable the local mode for you (button above). Every device of the box then appears in the Discover tab. The account is optional if you only use the local mode below. Not affiliated with Somfy.",
+        "fr": "Pour une box TaHoma, TaHoma Switch ou Connexoon. Avec l’e-mail et le mot de passe de l’application TaHoma, Gladys joint la box via le cloud Somfy, lit vos scénarios TaHoma et peut activer le mode local pour vous (bouton ci-dessus). Chaque appareil de la box apparaît ensuite dans l’onglet Découverte. Le compte est facultatif si vous n’utilisez que le mode local ci-dessous. Sans lien avec Somfy.",
+        "de": "Für eine TaHoma-, TaHoma-Switch- oder Connexoon-Box. Mit der E-Mail-Adresse und dem Passwort der TaHoma-App erreicht Gladys die Box über die Somfy-Cloud, liest Ihre TaHoma-Szenarien und kann den lokalen Modus für Sie aktivieren (Schaltfläche oben). Jedes Gerät der Box erscheint dann im Tab Erkennung. Das Konto ist optional, wenn Sie nur den lokalen Modus unten nutzen. Nicht mit Somfy verbunden.",
+        "es": "Para una caja TaHoma, TaHoma Switch o Connexoon. Con el correo y la contraseña de la aplicación TaHoma, Gladys accede a la caja por la nube de Somfy, lee sus escenarios TaHoma y puede activar el modo local por usted (botón de arriba). Cada dispositivo de la caja aparece después en la pestaña Descubrir. La cuenta es opcional si solo usa el modo local de abajo. Sin relación con Somfy."
+      },
+      "links": [
+        {
+          "url": "https://github.com/William-De71/gladys-somfy-tahoma/blob/main/docs/en.md",
+          "label": {
+            "en": "Setup guide",
+            "fr": "Guide d’installation",
+            "de": "Installationsanleitung",
+            "es": "Guía de instalación"
+          }
+        }
+      ]
+    },
+    {
+      "key": "region",
+      "type": "select",
+      "required": false,
+      "default": "europe",
+      "label": {
+        "en": "Region of the account",
+        "fr": "Région du compte",
+        "de": "Region des Kontos",
+        "es": "Región de la cuenta"
+      },
+      "options": [
+        {
+          "value": "europe",
+          "label": {
+            "en": "Europe, Middle East, Africa",
+            "fr": "Europe, Moyen-Orient, Afrique",
+            "de": "Europa, Naher Osten, Afrika",
+            "es": "Europa, Oriente Medio, África"
+          }
+        },
+        {
+          "value": "north_america",
+          "label": {
+            "en": "North America",
+            "fr": "Amérique du Nord",
+            "de": "Nordamerika",
+            "es": "América del Norte"
+          }
+        },
+        {
+          "value": "oceania",
+          "label": {
+            "en": "Asia, Oceania",
+            "fr": "Asie, Océanie",
+            "de": "Asien, Ozeanien",
+            "es": "Asia, Oceanía"
+          }
+        }
+      ]
+    },
+    {
+      "key": "username",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "label": {
+        "en": "E-mail of the TaHoma app",
+        "fr": "E-mail de l’application TaHoma",
+        "de": "E-Mail-Adresse der TaHoma-App",
+        "es": "Correo de la aplicación TaHoma"
+      },
+      "placeholder": {
+        "en": "you@example.com",
+        "fr": "vous@exemple.fr",
+        "de": "sie@beispiel.de",
+        "es": "usted@ejemplo.es"
+      }
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "required": false,
+      "label": {
+        "en": "Password of the TaHoma app",
+        "fr": "Mot de passe de l’application TaHoma",
+        "de": "Passwort der TaHoma-App",
+        "es": "Contraseña de la aplicación TaHoma"
+      }
+    },
+    {
+      "key": "local_intro",
+      "type": "section",
+      "label": {
+        "en": "Local mode (Developer Mode)",
+        "fr": "Mode local (mode développeur)",
+        "de": "Lokaler Modus (Entwicklermodus)",
+        "es": "Modo local (modo desarrollador)"
+      },
+      "description": {
+        "en": "On the local network, commands and states no longer go through Somfy and work without internet. The easiest way: save your account, then press “Enable the local mode” above. Or by hand: in the TaHoma app, Configure the installation › parameters of the box, tap the PIN 7 times to open the Developer Mode, create a token and paste it below. Gladys finds the box by itself; type its address only if not. Not available on the first TaHoma (square box) nor on the Connectivity Kit.",
+        "fr": "Sur le réseau local, commandes et états ne passent plus par Somfy et fonctionnent sans internet. Le plus simple : enregistrez votre compte, puis appuyez sur « Activer le mode local » ci-dessus. Ou à la main : dans l’application TaHoma, Configurer l’installation › paramètres de la box, touchez 7 fois le PIN pour ouvrir le mode développeur, créez un jeton et collez-le ci-dessous. Gladys trouve la box toute seule ; saisissez son adresse seulement sinon. Indisponible sur la première TaHoma (boîtier carré) et sur le kit de connectivité.",
+        "de": "Im lokalen Netzwerk laufen Befehle und Zustände nicht mehr über Somfy und funktionieren ohne Internet. Am einfachsten: Konto speichern und oben auf „Lokalen Modus aktivieren“ drücken. Oder von Hand: in der TaHoma-App unter Installation konfigurieren › Parameter der Box 7-mal auf die PIN tippen, um den Entwicklermodus zu öffnen, ein Token erstellen und unten einfügen. Gladys findet die Box selbst; geben Sie ihre Adresse nur sonst ein. Nicht verfügbar auf der ersten TaHoma (quadratische Box) und dem Connectivity Kit.",
+        "es": "En la red local, órdenes y estados ya no pasan por Somfy y funcionan sin internet. Lo más sencillo: guarde su cuenta y pulse «Activar el modo local» arriba. O a mano: en la aplicación TaHoma, Configurar la instalación › parámetros de la caja, toque 7 veces el PIN para abrir el modo desarrollador, cree un token y péguelo abajo. Gladys encuentra la caja sola; escriba su dirección solo si no. No disponible en la primera TaHoma (caja cuadrada) ni en el kit de conectividad."
+      },
+      "links": [
+        {
+          "url": "https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode",
+          "label": {
+            "en": "Somfy Developer Mode",
+            "fr": "Mode développeur Somfy",
+            "de": "Somfy-Entwicklermodus",
+            "es": "Modo desarrollador de Somfy"
+          }
+        }
+      ]
+    },
+    {
+      "key": "local_token",
+      "type": "secret",
+      "required": false,
+      "label": {
+        "en": "Local token (optional)",
+        "fr": "Jeton local (facultatif)",
+        "de": "Lokales Token (optional)",
+        "es": "Token local (opcional)"
+      },
+      "description": {
+        "en": "Created in the Developer Mode of the TaHoma app. Leave empty if you use the “Enable the local mode” button.",
+        "fr": "Créé dans le mode développeur de l’application TaHoma. Laissez vide si vous utilisez le bouton « Activer le mode local ».",
+        "de": "Im Entwicklermodus der TaHoma-App erstellt. Leer lassen, wenn Sie die Schaltfläche „Lokalen Modus aktivieren“ nutzen.",
+        "es": "Creado en el modo desarrollador de la aplicación TaHoma. Déjelo vacío si usa el botón «Activar el modo local»."
+      }
+    },
+    {
+      "key": "local_host",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "label": {
+        "en": "IP address of the box (optional)",
+        "fr": "Adresse IP de la box (facultatif)",
+        "de": "IP-Adresse der Box (optional)",
+        "es": "Dirección IP de la caja (opcional)"
+      },
+      "description": {
+        "en": "Only if Gladys does not find the box by itself (another subnet, multicast filtered). A fixed address in your router is best.",
+        "fr": "Seulement si Gladys ne trouve pas la box toute seule (autre sous-réseau, multicast filtré). Une adresse fixe dans votre routeur est préférable.",
+        "de": "Nur wenn Gladys die Box nicht selbst findet (anderes Subnetz, Multicast gefiltert). Eine feste Adresse im Router ist am besten.",
+        "es": "Solo si Gladys no encuentra la caja sola (otra subred, multicast filtrado). Lo mejor es una dirección fija en su router."
+      },
+      "placeholder": {
+        "en": "e.g. 192.168.1.30",
+        "fr": "ex. 192.168.1.30",
+        "de": "z. B. 192.168.1.30",
+        "es": "p. ej. 192.168.1.30"
+      }
+    },
+    {
+      "key": "gateway_pin",
+      "type": "string",
+      "required": false,
+      "default": "",
+      "label": {
+        "en": "PIN of the box (optional)",
+        "fr": "PIN de la box (facultatif)",
+        "de": "PIN der Box (optional)",
+        "es": "PIN de la caja (opcional)"
+      },
+      "description": {
+        "en": "Only for an account with several boxes: the one to use, as written under the box. Otherwise the first box.",
+        "fr": "Seulement pour un compte avec plusieurs box : celle à utiliser, telle qu’écrite sous la box. Sinon la première box.",
+        "de": "Nur für ein Konto mit mehreren Boxen: die zu verwendende, wie unter der Box angegeben. Sonst die erste Box.",
+        "es": "Solo para una cuenta con varias cajas: la que se usará, tal como figura bajo la caja. Si no, la primera caja."
+      },
+      "placeholder": {
+        "en": "e.g. 1234-5678-9012",
+        "fr": "ex. 1234-5678-9012",
+        "de": "z. B. 1234-5678-9012",
+        "es": "p. ej. 1234-5678-9012"
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "required": false,
+      "default": "en",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Names of the features and error messages of the scenes: Gladys does not tell the integration your language for those.",
+        "fr": "Noms des fonctionnalités et messages d’erreur des scènes : Gladys ne transmet pas votre langue à l’intégration pour ceux-là.",
+        "de": "Namen der Funktionen und Fehlermeldungen der Szenen: Gladys teilt der Integration Ihre Sprache dafür nicht mit.",
+        "es": "Nombres de las funciones y mensajes de error de las escenas: Gladys no comunica su idioma a la integración para ellos."
+      },
+      "options": [
+        {
+          "value": "en",
+          "label": { "en": "English", "fr": "Anglais", "de": "Englisch", "es": "Inglés" }
+        },
+        {
+          "value": "fr",
+          "label": { "en": "French", "fr": "Français", "de": "Französisch", "es": "Francés" }
+        },
+        {
+          "value": "de",
+          "label": { "en": "German", "fr": "Allemand", "de": "Deutsch", "es": "Alemán" }
+        },
+        {
+          "value": "es",
+          "label": { "en": "Spanish", "fr": "Espagnol", "de": "Spanisch", "es": "Español" }
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "cover",
+      "icon": "sliders",
+      "action_timeout_seconds": 15,
+      "label": {
+        "en": "TaHoma cover",
+        "fr": "Volet TaHoma",
+        "de": "TaHoma-Behang",
+        "es": "Persiana TaHoma"
+      },
+      "description": {
+        "en": "One cover: how open, its state, slats, “My” position, and its buttons.",
+        "fr": "Un volet : ouverture, état, lames, position « My » et ses boutons.",
+        "de": "Ein Behang: Öffnung, Zustand, Lamellen, „My“-Position und Tasten.",
+        "es": "Una persiana: apertura, estado, lamas, posición «My» y sus botones."
+      },
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Cover",
+            "fr": "Volet",
+            "de": "Behang",
+            "es": "Persiana"
+          }
+        }
+      ]
+    },
+    {
+      "key": "overview",
+      "icon": "list",
+      "action_timeout_seconds": 30,
+      "label": {
+        "en": "TaHoma box",
+        "fr": "Box TaHoma",
+        "de": "TaHoma-Box",
+        "es": "Caja TaHoma"
+      },
+      "description": {
+        "en": "Covers at a glance, the channel in use and the devices not answering.",
+        "fr": "Les volets d’un coup d’œil, le canal utilisé et les appareils muets.",
+        "de": "Behänge auf einen Blick, der genutzte Kanal und stumme Geräte.",
+        "es": "Las persianas de un vistazo, el canal en uso y los equipos mudos."
+      }
+    },
+    {
+      "key": "scenarios",
+      "icon": "play-circle",
+      "action_timeout_seconds": 30,
+      "label": {
+        "en": "TaHoma scenarios",
+        "fr": "Scénarios TaHoma",
+        "de": "TaHoma-Szenarien",
+        "es": "Escenarios TaHoma"
+      },
+      "description": {
+        "en": "Your TaHoma scenarios, and buttons to run up to four of them.",
+        "fr": "Vos scénarios TaHoma, et des boutons pour en lancer jusqu’à quatre.",
+        "de": "Ihre TaHoma-Szenarien und Tasten, um bis zu vier zu starten.",
+        "es": "Sus escenarios TaHoma, y botones para ejecutar hasta cuatro."
+      },
+      "settings": [
+        {
+          "key": "names",
+          "type": "string",
+          "required": false,
+          "label": {
+            "en": "Scenarios to show",
+            "fr": "Scénarios à afficher",
+            "de": "Angezeigte Szenarien",
+            "es": "Escenarios mostrados"
+          },
+          "description": {
+            "en": "Names separated by commas, in the order of the buttons. Empty: every scenario.",
+            "fr": "Noms séparés par des virgules, dans l’ordre des boutons. Vide : tous les scénarios.",
+            "de": "Namen durch Kommas getrennt, in der Reihenfolge der Tasten. Leer: alle Szenarien.",
+            "es": "Nombres separados por comas, en el orden de los botones. Vacío: todos los escenarios."
+          }
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "command_failed",
+      "label": {
+        "en": "A TaHoma command failed",
+        "fr": "Une commande TaHoma a échoué",
+        "de": "Ein TaHoma-Befehl ist fehlgeschlagen",
+        "es": "Una orden TaHoma ha fallado"
+      },
+      "description": {
+        "en": "From Gladys, the TaHoma app or a TaHoma scenario: the device did not answer, or refused (obstacle, blocked motor, out of range).",
+        "fr": "Depuis Gladys, l’application TaHoma ou un scénario TaHoma : l’appareil n’a pas répondu ou a refusé (obstacle, moteur bloqué, hors de portée).",
+        "de": "Aus Gladys, der TaHoma-App oder einem TaHoma-Szenario: Das Gerät hat nicht geantwortet oder abgelehnt (Hindernis, blockierter Motor, außer Reichweite).",
+        "es": "Desde Gladys, la aplicación TaHoma o un escenario TaHoma: el dispositivo no respondió o se negó (obstáculo, motor bloqueado, fuera de alcance)."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          },
+          "description": {
+            "en": "Empty: any device.",
+            "fr": "Vide : n’importe quel appareil.",
+            "de": "Leer: jedes Gerät.",
+            "es": "Vacío: cualquier dispositivo."
+          }
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        },
+        {
+          "key": "failure_type",
+          "type": "string",
+          "label": {
+            "en": "Failure code (Overkiz)",
+            "fr": "Code d’échec (Overkiz)",
+            "de": "Fehlercode (Overkiz)",
+            "es": "Código de fallo (Overkiz)"
+          }
+        },
+        {
+          "key": "label",
+          "type": "string",
+          "label": {
+            "en": "Name of the execution",
+            "fr": "Nom de l’exécution",
+            "de": "Name der Ausführung",
+            "es": "Nombre de la ejecución"
+          }
+        }
+      ]
+    },
+    {
+      "key": "device_availability_changed",
+      "label": {
+        "en": "A TaHoma device stops or resumes answering",
+        "fr": "Un appareil TaHoma ne répond plus ou répond à nouveau",
+        "de": "Ein TaHoma-Gerät antwortet nicht mehr oder wieder",
+        "es": "Un dispositivo TaHoma deja de responder o vuelve a hacerlo"
+      },
+      "description": {
+        "en": "Reported by the box: empty battery, power cut, radio out of range.",
+        "fr": "Signalé par la box : pile vide, coupure de courant, radio hors de portée.",
+        "de": "Von der Box gemeldet: leere Batterie, Stromausfall, Funk außer Reichweite.",
+        "es": "Indicado por la caja: pila agotada, corte de luz, radio fuera de alcance."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          },
+          "description": {
+            "en": "Empty: any device.",
+            "fr": "Vide : n’importe quel appareil.",
+            "de": "Leer: jedes Gerät.",
+            "es": "Vacío: cualquier dispositivo."
+          }
+        },
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "Becomes",
+            "fr": "Devient",
+            "de": "Wird",
+            "es": "Pasa a"
+          },
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beides.",
+            "es": "Vacío: ambos."
+          },
+          "options": [
+            {
+              "value": "unavailable",
+              "label": {
+                "en": "Not answering",
+                "fr": "Muet",
+                "de": "Antwortet nicht",
+                "es": "Sin respuesta"
+              }
+            },
+            {
+              "value": "available",
+              "label": {
+                "en": "Answering again",
+                "fr": "Répond à nouveau",
+                "de": "Antwortet wieder",
+                "es": "Responde de nuevo"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "device_name",
+          "type": "string",
+          "label": {
+            "en": "Device name",
+            "fr": "Nom de l’appareil",
+            "de": "Gerätename",
+            "es": "Nombre del dispositivo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "box_connection_changed",
+      "label": {
+        "en": "The TaHoma box is lost or back",
+        "fr": "La box TaHoma est perdue ou revenue",
+        "de": "Die TaHoma-Box ist weg oder zurück",
+        "es": "La caja TaHoma se pierde o vuelve"
+      },
+      "description": {
+        "en": "Lost: neither the local network nor the cloud reaches it for a minute, or Somfy says it is offline. Back: it answers again.",
+        "fr": "Perdue : ni le réseau local ni le cloud ne la joignent pendant une minute, ou Somfy la dit hors ligne. Revenue : elle répond à nouveau.",
+        "de": "Weg: Weder das lokale Netzwerk noch die Cloud erreichen sie eine Minute lang, oder Somfy meldet sie offline. Zurück: Sie antwortet wieder.",
+        "es": "Perdida: ni la red local ni la nube la alcanzan durante un minuto, o Somfy la indica desconectada. Vuelve: responde de nuevo."
+      },
+      "fields": [
+        {
+          "key": "state",
+          "type": "select",
+          "label": {
+            "en": "Becomes",
+            "fr": "Devient",
+            "de": "Wird",
+            "es": "Pasa a"
+          },
+          "description": {
+            "en": "Empty: both.",
+            "fr": "Vide : les deux.",
+            "de": "Leer: beides.",
+            "es": "Vacío: ambos."
+          },
+          "options": [
+            {
+              "value": "offline",
+              "label": {
+                "en": "Lost",
+                "fr": "Perdue",
+                "de": "Weg",
+                "es": "Perdida"
+              }
+            },
+            {
+              "value": "online",
+              "label": {
+                "en": "Back",
+                "fr": "Revenue",
+                "de": "Zurück",
+                "es": "De vuelta"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "transport",
+          "type": "string",
+          "label": {
+            "en": "Channel (local, cloud, none)",
+            "fr": "Canal (local, cloud, none)",
+            "de": "Kanal (local, cloud, none)",
+            "es": "Canal (local, cloud, none)"
+          }
+        },
+        {
+          "key": "pin",
+          "type": "string",
+          "label": {
+            "en": "PIN of the box",
+            "fr": "PIN de la box",
+            "de": "PIN der Box",
+            "es": "PIN de la caja"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "run_scenario",
+      "timeout_seconds": 30,
+      "label": {
+        "en": "Run a TaHoma scenario",
+        "fr": "Lancer un scénario TaHoma",
+        "de": "TaHoma-Szenario starten",
+        "es": "Ejecutar un escenario TaHoma"
+      },
+      "description": {
+        "en": "By its name in the TaHoma app. Read through the TaHoma account; in local mode, its commands are replayed on the local network.",
+        "fr": "Par son nom dans l’application TaHoma. Lu via le compte TaHoma ; en mode local, ses commandes sont rejouées sur le réseau local.",
+        "de": "Über seinen Namen in der TaHoma-App. Über das TaHoma-Konto gelesen; im lokalen Modus werden seine Befehle im lokalen Netzwerk wiedergegeben.",
+        "es": "Por su nombre en la aplicación TaHoma. Se lee a través de la cuenta TaHoma; en modo local, sus órdenes se repiten en la red local."
+      },
+      "fields": [
+        {
+          "key": "scenario",
+          "type": "string",
+          "required": true,
+          "label": {
+            "en": "Name of the scenario",
+            "fr": "Nom du scénario",
+            "de": "Name des Szenarios",
+            "es": "Nombre del escenario"
+          },
+          "placeholder": {
+            "en": "e.g. Good night",
+            "fr": "ex. Bonne nuit",
+            "de": "z. B. Gute Nacht",
+            "es": "p. ej. Buenas noches"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "key": "exec_id",
+          "type": "string",
+          "label": {
+            "en": "Execution id",
+            "fr": "Identifiant d’exécution",
+            "de": "Ausführungs-ID",
+            "es": "Id de ejecución"
+          }
+        },
+        {
+          "key": "scenario",
+          "type": "string",
+          "label": {
+            "en": "Scenario",
+            "fr": "Scénario",
+            "de": "Szenario",
+            "es": "Escenario"
+          }
+        },
+        {
+          "key": "transport",
+          "type": "string",
+          "label": {
+            "en": "Channel (local, cloud)",
+            "fr": "Canal (local, cloud)",
+            "de": "Kanal (local, cloud)",
+            "es": "Canal (local, cloud)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "send_command",
+      "timeout_seconds": 20,
+      "label": {
+        "en": "Send a TaHoma command",
+        "fr": "Envoyer une commande TaHoma",
+        "de": "TaHoma-Befehl senden",
+        "es": "Enviar una orden TaHoma"
+      },
+      "description": {
+        "en": "“My” (the favourite position stored in the motor), open, close, stop, or identify (the motor moves a little).",
+        "fr": "« My » (la position favorite enregistrée dans le moteur), ouvrir, fermer, stop, ou identifier (le moteur bouge un peu).",
+        "de": "„My“ (die im Motor gespeicherte Lieblingsposition), öffnen, schließen, stopp oder identifizieren (der Motor bewegt sich kurz).",
+        "es": "«My» (la posición favorita guardada en el motor), abrir, cerrar, parar o identificar (el motor se mueve un poco)."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "required": true,
+          "label": {
+            "en": "Device",
+            "fr": "Appareil",
+            "de": "Gerät",
+            "es": "Dispositivo"
+          }
+        },
+        {
+          "key": "command",
+          "type": "select",
+          "required": true,
+          "default": "my",
+          "label": {
+            "en": "Command",
+            "fr": "Commande",
+            "de": "Befehl",
+            "es": "Orden"
+          },
+          "options": [
+            {
+              "value": "open",
+              "label": { "en": "Open", "fr": "Ouvrir", "de": "Öffnen", "es": "Abrir" }
+            },
+            {
+              "value": "close",
+              "label": { "en": "Close", "fr": "Fermer", "de": "Schließen", "es": "Cerrar" }
+            },
+            {
+              "value": "stop",
+              "label": { "en": "Stop", "fr": "Stop", "de": "Stopp", "es": "Parar" }
+            },
+            {
+              "value": "my",
+              "label": {
+                "en": "My: favourite position",
+                "fr": "My : position favorite",
+                "de": "My: Lieblingsposition",
+                "es": "My: posición favorita"
+              }
+            },
+            {
+              "value": "identify",
+              "label": {
+                "en": "Identify",
+                "fr": "Identifier",
+                "de": "Identifizieren",
+                "es": "Identificar"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "exec_id",
+          "type": "string",
+          "label": {
+            "en": "Execution id",
+            "fr": "Identifiant d’exécution",
+            "de": "Ausführungs-ID",
+            "es": "Id de ejecución"
+          }
+        },
+        {
+          "key": "transport",
+          "type": "string",
+          "label": {
+            "en": "Channel (local, cloud)",
+            "fr": "Canal (local, cloud)",
+            "de": "Kanal (local, cloud)",
+            "es": "Canal (local, cloud)"
+          }
+        }
+      ]
+    }
+  ]
+}
