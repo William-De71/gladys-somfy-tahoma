@@ -117,6 +117,10 @@ Befehle und Zustände über Somfy.
   und „My“-Position, mit den Tasten öffnen, stopp, „My“ und schließen.
 - **TaHoma-Box**: die Behänge auf einen Blick, der genutzte Weg, die
   Firmware, stumme Geräte und eine Taste, um die Zustände neu zu lesen.
+  Gladys zeigt höchstens acht Karten: darüber hinaus werden sieben Behänge
+  gezeigt (die fahrenden und offenen zuerst) und die letzte Karte nennt die
+  übrigen. Einstellung: die angezeigten Behänge, Namen durch Kommas getrennt,
+  in dieser Reihenfolge.
 - **TaHoma-Szenarien**: Ihre TaHoma-Szenarien und Tasten, um bis zu vier zu
   starten (Einstellung: Namen durch Kommas getrennt).
 

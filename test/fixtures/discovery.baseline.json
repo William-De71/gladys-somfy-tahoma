@@ -291,7 +291,12 @@
     },
     {
       "key": "overview",
-      "settings": []
+      "settings": [
+        {
+          "key": "names",
+          "type": "string"
+        }
+      ]
     },
     {
       "key": "scenarios",

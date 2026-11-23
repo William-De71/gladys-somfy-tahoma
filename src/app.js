@@ -672,9 +672,10 @@ export function createApp(
     return buildCoverWidget(device && coverOf(device) ? coverView(device) : null);
   });
 
-  gladys.onWidgetGet(WIDGETS.OVERVIEW, async () =>
+  gladys.onWidgetGet(WIDGETS.OVERVIEW, async ({ settings } = {}) =>
     buildOverviewWidget({
       covers: createdCovers().map(coverView),
+      names: settings?.names,
       box: {
         pin: view.pin,
         transport: view.transport,

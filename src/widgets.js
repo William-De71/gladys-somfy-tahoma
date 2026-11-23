@@ -5,11 +5,19 @@
 //              what it does, its slats and its "My" position, the buttons
 //              open / stop / My / close. "My" is what Gladys has no button
 //              for: the favourite position stored in the motor.
-//   overview   the covers added to Gladys at a glance, and the box: channel
-//              in use (local or cloud), firmware, devices that stopped
-//              answering; a button reads every state again
+//   overview   the covers added to Gladys at a glance (setting `names`:
+//              which ones, in which order), and the box: channel in use
+//              (local or cloud), firmware, devices that stopped answering;
+//              a button reads every state again. The core shows 8 cards at
+//              most: past 8 covers, 7 are shown (moving and open first) and
+//              the 8th card names the others
 //   scenarios  the TaHoma scenarios, and buttons to run them (setting
 //              `names`: which ones, in which order)
+//
+// Every change (states, availability, channel, devices added or renamed)
+// asks the core to fetch the contents again: the TTLs are only a safety net,
+// long so that a dashboard of many covers opens from the cache (the core
+// fetches 2 contents at a time on a miss).
 //
 // Pure: the build functions turn a snapshot into a content, so the tests and
 // docs/illustrations/gen.mjs use the exact code Gladys gets. Every text is
@@ -20,8 +28,8 @@ import { t, truncate } from './i18n.js';
 
 export const WIDGETS = { COVER: 'cover', OVERVIEW: 'overview', SCENARIOS: 'scenarios' };
 export const WIDGET_ACTIONS = { MY: 'my', REFRESH: 'refresh', RUN: 'run' };
-export const TTL_SECONDS = 60;
-export const OVERVIEW_TTL_SECONDS = 120;
+export const TTL_SECONDS = 3600;
+export const OVERVIEW_TTL_SECONDS = 3600;
 export const SCENARIOS_TTL_SECONDS = 600;
 
 const MAX_CARDS = 8;
@@ -189,14 +197,101 @@ const channelRow = (box) => {
 };
 
 /**
+ * @description The items listed from the `names` setting: the names listed
+ * (comma-separated, any case), in that order; every item when empty.
+ * @param {object[]} items - Scenarios or covers.
+ * @param {string} [names] - Setting.
+ * @param {Function} nameOf - The name of an item.
+ * @returns {object[]} The items to show.
+ */
+function chooseByNames(items, names, nameOf) {
+  const wanted = String(names ?? '')
+    .split(',')
+    .map((name) => name.trim().toLowerCase())
+    .filter(Boolean);
+  if (wanted.length === 0) {
+    return items;
+  }
+  return wanted
+    .map((name) => items.find((item) => nameOf(item).toLowerCase() === name))
+    .filter(Boolean)
+    .filter((item, index, list) => list.indexOf(item) === index);
+}
+
+/**
+ * @description The covers shown, from the `names` setting (see
+ * `chooseByNames`).
+ * @param {CoverView[]} covers - Covers added to Gladys, by name.
+ * @param {string} [names] - Setting.
+ * @returns {CoverView[]} The covers to show.
+ */
+export const chooseCovers = (covers, names = '') =>
+  chooseByNames(covers, names, (view) => view.name);
+
+// Which covers keep a card when they do not all fit: the lower, the sooner.
+const coverRank = (view) => {
+  if (!view.reachable) {
+    return 2;
+  }
+  if (view.moving) {
+    return 0;
+  }
+  if (view.state === 1 || view.state === 0) {
+    return 1;
+  }
+  return view.state === -1 ? 4 : 3;
+};
+
+/**
+ * @description The cards of the covers: all of them up to 8; past 8, the 7
+ * that matter most (moving, open, not answering, then the others), in the
+ * order given, and a last card naming the others.
+ * @param {CoverView[]} covers - Covers, in the order to show.
+ * @returns {{ shown: CoverView[], hidden: CoverView[] }} Cards and the rest.
+ */
+export function splitCovers(covers) {
+  if (covers.length <= MAX_CARDS) {
+    return { shown: covers, hidden: [] };
+  }
+  const kept = new Set(
+    covers
+      .map((view, index) => ({ view, index }))
+      .sort((a, b) => coverRank(a.view) - coverRank(b.view) || a.index - b.index)
+      .slice(0, MAX_CARDS - 1)
+      .map(({ view }) => view),
+  );
+  return {
+    shown: covers.filter((view) => kept.has(view)),
+    hidden: covers.filter((view) => !kept.has(view)),
+  };
+}
+
+const coverCard = (view) => {
+  const state = stateText(view);
+  const item = { title: truncate(view.name, 60), subtitle: state.text };
+  if (view.reachable && Number.isFinite(view.position)) {
+    item.badge = { text: percent(view.position), color: state.color };
+    if (!view.moving && view.state === 0) {
+      // The badge says how much: no need to repeat it.
+      item.subtitle = t('statePartly');
+    }
+  }
+  return item;
+};
+
+/**
  * @description The `overview` widget.
- * @param {{ covers: CoverView[], box: BoxView }} view - Snapshot.
+ * @param {{ covers: CoverView[], box: BoxView, names?: string }} view -
+ *   Snapshot: the covers added to Gladys by name, the box, the setting.
  * @returns {object} The widget content.
  */
-export function buildOverviewWidget({ covers, box }) {
+export function buildOverviewWidget({ covers: all, box, names = '' }) {
   const components = [];
-  if (covers.length === 0) {
+  const covers = chooseCovers(all, names);
+  if (all.length === 0) {
     components.push({ type: 'text', text: t('widgetNoCover'), variant: 'caption' });
+  } else if (covers.length === 0) {
+    components.push({ type: 'text', text: t('widgetNoCoverNamed'), variant: 'caption' });
   } else {
     const open = covers.filter((view) => view.reachable && view.state === 1).length;
     components.push({
@@ -204,22 +299,15 @@ export function buildOverviewWidget({ covers, box }) {
       text: t('widgetSummary', { open, total: covers.length }),
       variant: 'caption',
     });
-    components.push({
-      type: 'card-list',
-      display: 'list',
-      items: covers.slice(0, MAX_CARDS).map((view) => {
-        const state = stateText(view);
-        const item = { title: truncate(view.name, 60), subtitle: state.text };
-        if (view.reachable && Number.isFinite(view.position)) {
-          item.badge = { text: percent(view.position), color: state.color };
-          if (!view.moving && view.state === 0) {
-            // The badge says how much: no need to repeat it.
-            item.subtitle = t('statePartly');
-          }
-        }
-        return item;
-      }),
-    });
+    const { shown, hidden } = splitCovers(covers);
+    const items = shown.map(coverCard);
+    if (hidden.length > 0) {
+      items.push({
+        title: t('widgetMoreCovers', { count: hidden.length }),
+        subtitle: truncate(hidden.map((view) => view.name).join(', '), 60),
+      });
+    }
+    components.push({ type: 'card-list', display: 'list', items });
   }
   const rows = [channelRow(box)];
   if (box.firmware) {
@@ -258,19 +346,8 @@ export function buildOverviewWidget({ covers, box }) {
  * @param {string} [names] - Setting.
  * @returns {Array<{ oid: string, label: string }>} The scenarios to show.
  */
-export function chooseScenarios(scenarios, names = '') {
-  const wanted = String(names ?? '')
-    .split(',')
-    .map((name) => name.trim().toLowerCase())
-    .filter(Boolean);
-  if (wanted.length === 0) {
-    return scenarios;
-  }
-  return wanted
-    .map((name) => scenarios.find((scenario) => scenario.label.toLowerCase() === name))
-    .filter(Boolean)
-    .filter((scenario, index, list) => list.indexOf(scenario) === index);
-}
+export const chooseScenarios = (scenarios, names = '') =>
+  chooseByNames(scenarios, names, (scenario) => scenario.label);
 
 /**
  * @description The `scenarios` widget.

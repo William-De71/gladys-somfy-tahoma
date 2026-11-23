@@ -108,7 +108,7 @@ Positions are 0 % closed to 100 % open, as Gladys counts them; Overkiz counts th
 ![The "TaHoma cover" widget for the living room shutter (gauge at 65 %, state, "My" position, buttons Open, Stop, My, Close), the "TaHoma box" overview of six covers and the box on the local network, and the "TaHoma scenarios" widget with four run buttons (generated illustration, not a screenshot)](docs/assets/widgets.en.png)
 
 - **TaHoma cover** (`cover`, setting: one cover): live gauge of the position, state, slats, "My" position, and the buttons **Open**, **Stop**, **My** (the favourite position stored in the motor) and **Close**; a one-button opener shows a single button.
-- **TaHoma box** (`overview`): the covers added to Gladys (eight at most) with their state and position, the channel in use, the firmware, the devices not answering, and a **Read states** button.
+- **TaHoma box** (`overview`): the covers added to Gladys with their state and position, the channel in use, the firmware, the devices not answering, and a **Read states** button. Past eight covers, seven are shown (moving, open or not answering first) and a last “+ N other cover(s)” card names the others. Setting `names`: the covers to show, names separated by commas, in that order.
 - **TaHoma scenarios** (`scenarios`, setting: names separated by commas): the TaHoma scenarios and buttons to run up to four.
 
 ## Scene triggers and actions

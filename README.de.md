@@ -108,7 +108,7 @@ Positionen reichen von 0 % geschlossen bis 100 % offen, wie Gladys sie zählt; O
 ![Das Widget „TaHoma-Behang“ für den Wohnzimmer-Rollladen (Anzeige bei 65 %, Zustand, „My“-Position, Tasten Öffnen, Stopp, My, Schließen), die Übersicht „TaHoma-Box“ mit sechs Behängen und der Box im lokalen Netzwerk und das Widget „TaHoma-Szenarien“ mit vier Start-Tasten (generierte Illustration, kein Screenshot)](docs/assets/widgets.de.png)
 
 - **TaHoma-Behang** (`cover`, Einstellung: ein Behang): Live-Anzeige der Position, Zustand, Lamellen, „My“-Position und die Tasten **Öffnen**, **Stopp**, **My** (die im Motor gespeicherte Lieblingsposition) und **Schließen**; ein Antrieb mit einer Taste zeigt nur eine Taste.
-- **TaHoma-Box** (`overview`): die in Gladys hinzugefügten Behänge (höchstens acht) mit Zustand und Position, der genutzte Kanal, die Firmware, stumme Geräte und eine Taste **Zustände lesen**.
+- **TaHoma-Box** (`overview`): die in Gladys hinzugefügten Behänge mit Zustand und Position, der genutzte Kanal, die Firmware, stumme Geräte und eine Taste **Zustände lesen**. Bei mehr als acht Behängen werden sieben gezeigt (fahrende, offene oder stumme zuerst) und eine letzte Karte „+ N weitere(r) Behang/Behänge“ nennt die übrigen. Einstellung `names`: die angezeigten Behänge, Namen durch Kommas getrennt, in dieser Reihenfolge.
 - **TaHoma-Szenarien** (`scenarios`, Einstellung: Namen durch Kommas getrennt): die TaHoma-Szenarien und Tasten, um bis zu vier zu starten.
 
 ## Szenen-Auslöser und -Aktionen

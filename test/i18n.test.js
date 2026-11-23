@@ -175,6 +175,7 @@ test('widget texts fit their slots in every language', () => {
     widgetChooseDevice: 80,
     widgetOffline: 80,
     widgetNoCover: 100,
+    widgetNoCoverNamed: 80,
     widgetNoScenario: 80,
     widgetScenariosNeedCloud: 120,
   };
@@ -183,6 +184,7 @@ test('widget texts fit their slots in every language', () => {
     widgetSummary: [{ open: 32, total: 32 }, 80],
     widgetDevicesCount: [{ count: 999 }, 40],
     widgetScenarioActions: [{ count: 99 }, 40],
+    widgetMoreCovers: [{ count: 99 }, 60],
   };
   for (const [key, max] of Object.entries(bounds)) {
     for (const language of LANGUAGES) {

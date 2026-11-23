@@ -115,6 +115,10 @@ passent par Somfy.
   position « My », avec les boutons ouvrir, stop, « My » et fermer.
 - **Box TaHoma** : les volets d’un coup d’œil, le canal utilisé, le
   micrologiciel, les appareils muets, et un bouton pour relire les états.
+  Gladys affiche huit cartes au plus : au-delà, sept volets sont montrés (ceux
+  qui bougent ou sont ouverts d’abord) et la dernière carte nomme les autres.
+  Réglage : les volets à afficher, noms séparés par des virgules, dans cet
+  ordre.
 - **Scénarios TaHoma** : vos scénarios TaHoma et des boutons pour en lancer
   jusqu’à quatre (réglage : noms séparés par des virgules).
 

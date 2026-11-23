@@ -109,7 +109,10 @@ go through Somfy.
 - **TaHoma cover**: one cover, how open it is, its state, slats and “My”
   position, with the open, stop, “My” and close buttons.
 - **TaHoma box**: the covers at a glance, the channel in use, the firmware,
-  the devices not answering, and a button to read the states again.
+  the devices not answering, and a button to read the states again. Gladys
+  shows eight cards at most: past that, seven covers are shown (the moving
+  and open ones first) and the last card names the others. Setting: the
+  covers to show, names separated by commas, in that order.
 - **TaHoma scenarios**: your TaHoma scenarios and buttons to run up to four
   of them (setting: names separated by commas).
 

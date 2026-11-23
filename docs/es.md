@@ -112,7 +112,10 @@ cada hora si hay una cuenta. En modo nube, órdenes y estados pasan por Somfy.
   lamas y su posición «My», con los botones abrir, parar, «My» y cerrar.
 - **Caja TaHoma**: las persianas de un vistazo, el canal en uso, el firmware,
   los dispositivos que no responden y un botón para leer de nuevo los
-  estados.
+  estados. Gladys muestra ocho tarjetas como máximo: más allá, se muestran
+  siete persianas (primero las que se mueven o están abiertas) y la última
+  tarjeta nombra las demás. Ajuste: las persianas mostradas, nombres
+  separados por comas, en ese orden.
 - **Escenarios TaHoma**: sus escenarios TaHoma y botones para ejecutar hasta
   cuatro (ajuste: nombres separados por comas).
 

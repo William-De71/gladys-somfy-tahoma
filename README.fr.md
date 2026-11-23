@@ -108,7 +108,7 @@ Les positions vont de 0 % fermé à 100 % ouvert, comme les compte Gladys ; Over
 ![Le widget « Volet TaHoma » pour le volet du salon (jauge à 65 %, état, position « My », boutons Ouvrir, Stop, My, Fermer), la vue « Box TaHoma » de six volets et de la box sur le réseau local, et le widget « Scénarios TaHoma » avec quatre boutons (illustration générée, pas une capture d’écran)](docs/assets/widgets.fr.png)
 
 - **Volet TaHoma** (`cover`, réglage : un volet) : jauge en direct de la position, état, lames, position « My », et les boutons **Ouvrir**, **Stop**, **My** (la position favorite enregistrée dans le moteur) et **Fermer** ; un ouvrant à un seul bouton n’en affiche qu’un.
-- **Box TaHoma** (`overview`) : les volets ajoutés à Gladys (huit au plus) avec leur état et leur position, le canal utilisé, le micrologiciel, les appareils muets, et un bouton **Relire les états**.
+- **Box TaHoma** (`overview`) : les volets ajoutés à Gladys avec leur état et leur position, le canal utilisé, le micrologiciel, les appareils muets, et un bouton **Relire les états**. Au-delà de huit volets, sept sont montrés (ceux qui bougent, sont ouverts ou muets d’abord) et une dernière carte « + N autre(s) volet(s) » nomme les autres. Réglage `names` : les volets à afficher, noms séparés par des virgules, dans cet ordre.
 - **Scénarios TaHoma** (`scenarios`, réglage : noms séparés par des virgules) : les scénarios TaHoma et des boutons pour en lancer jusqu’à quatre.
 
 ## Déclencheurs et actions de scène

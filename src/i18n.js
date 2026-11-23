@@ -322,6 +322,18 @@ const MESSAGES = {
     de: 'Noch kein TaHoma-Behang in Gladys: Fügen Sie sie im Tab Erkennung hinzu.',
     es: 'Aún no hay persianas TaHoma en Gladys: añádalas desde la pestaña Descubrir.',
   },
+  widgetNoCoverNamed: {
+    en: 'None of the covers named in the settings of this widget is in Gladys.',
+    fr: 'Aucun des volets nommés dans les réglages de ce widget n’est dans Gladys.',
+    de: 'Keiner der in den Widget-Einstellungen genannten Behänge ist in Gladys.',
+    es: 'Ninguna de las persianas nombradas en los ajustes del widget está en Gladys.',
+  },
+  widgetMoreCovers: {
+    en: '+ {count} other cover(s)',
+    fr: '+ {count} autre(s) volet(s)',
+    de: '+ {count} weitere(r) Behang/Behänge',
+    es: '+ {count} persiana(s) más',
+  },
   widgetSummary: {
     en: '{open} open out of {total}',
     fr: '{open} ouvert(s) sur {total}',

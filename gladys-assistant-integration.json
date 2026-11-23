@@ -340,7 +340,26 @@
         "fr": "Les volets d’un coup d’œil, le canal utilisé et les appareils muets.",
         "de": "Behänge auf einen Blick, der genutzte Kanal und stumme Geräte.",
         "es": "Las persianas de un vistazo, el canal en uso y los equipos mudos."
-      }
+      },
+      "settings": [
+        {
+          "key": "names",
+          "type": "string",
+          "required": false,
+          "label": {
+            "en": "Covers to show",
+            "fr": "Volets à afficher",
+            "de": "Angezeigte Behänge",
+            "es": "Persianas mostradas"
+          },
+          "description": {
+            "en": "Names separated by commas, in that order. Empty: every cover (past 8, the open ones first).",
+            "fr": "Noms séparés par des virgules, dans cet ordre. Vide : tous les volets (au-delà de 8, les ouverts d’abord).",
+            "de": "Namen durch Kommas getrennt, in dieser Reihenfolge. Leer: alle Behänge (über 8 die offenen zuerst).",
+            "es": "Nombres separados por comas, en ese orden. Vacío: todas las persianas (más de 8: las abiertas primero)."
+          }
+        }
+      ]
     },
     {
       "key": "scenarios",
