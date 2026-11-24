@@ -1,6 +1,6 @@
 {
   "name": "gladys-somfy-tahoma",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "description": "External Gladys Assistant integration for the Somfy TaHoma boxes (TaHoma, TaHoma Switch, Connexoon): covers, lights, plugs and sensors through the local Developer Mode API or the Somfy cloud.",
   "homepage": "https://github.com/William-De71/gladys-somfy-tahoma",
