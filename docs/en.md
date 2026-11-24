@@ -75,19 +75,26 @@ scene: choose the language of the feature names and of the scene errors.
 Open the **Discover** tab: every device of the box that Gladys can show
 appears, with the name given in the TaHoma app. Add the ones you want.
 
-| TaHoma device                                                     | In Gladys                                                                                                 |
-| ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Roller shutter, blind, screen, window, pergola, garage door, gate | Shutter: open / stop / close, position when the motor reports it, slats when it has some                  |
-| Awning                                                            | Shutter, position = how far out                                                                           |
-| Curtain                                                           | Curtain                                                                                                   |
-| One-button opener                                                 | Shutter, open and close press the button                                                                  |
-| RTS motor                                                         | Shutter without feedback (RTS is one-way)                                                                 |
-| Light                                                             | Light: on / off, intensity when dimmable                                                                  |
-| Plug, relay, pool                                                 | Switch                                                                                                    |
-| Sensors                                                           | Temperature, light, humidity, opening, motion, smoke, water leak, battery, CO2, power, energy index (kWh) |
+| TaHoma device                                                     | In Gladys                                                                                                                 |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Roller shutter, blind, screen, window, pergola, garage door, gate | Shutter: open / stop / close, position when the motor reports it, slats when it has some                                  |
+| Awning                                                            | Shutter, position = how far out                                                                                           |
+| Curtain                                                           | Curtain                                                                                                                   |
+| One-button opener                                                 | Shutter, open and close press the button                                                                                  |
+| RTS motor                                                         | Shutter without feedback (RTS is one-way)                                                                                 |
+| Light                                                             | Light: on / off, intensity when dimmable                                                                                  |
+| Plug, relay, pool                                                 | Switch                                                                                                                    |
+| Sensors                                                           | Temperature, light, humidity, opening, motion, smoke, water leak, battery and low battery, CO2, power, energy index (kWh) |
 
 Positions count how open the cover is (100 % = open), like everywhere in
 Gladys. The box pushes the changes: nothing is polled.
+
+Batteries: most devices (solar Velux covers, sirens, IO sensors) do not give
+a percentage, only a level in words. The integration turns it into an
+estimate (good or full 100 %, normal 75 %, medium 50 %, low 15 %, very low
+or critical 5 %) and adds a **Low battery** sensor, on when the level is low
+or below. A device that already reported a battery after its creation in
+Gladys gets these sensors with **Update** in the discovery screen.
 
 Not handled yet: heating (thermostats, valves, heat pumps), alarms, cameras
 and Hue lamps behind the box.

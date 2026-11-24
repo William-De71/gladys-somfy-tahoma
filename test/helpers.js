@@ -32,6 +32,9 @@ export const PLUG = 'io://1234-5678-9012/10042836'; // on / off
 export const DOOR = 'rtds://1234-5678-9012/347675'; // contact sensor
 export const SCREEN = 'io://1234-5678-9012/3904805'; // exterior screen
 export const THERMO = 'io://1234-5678-9012/1292684#2'; // temperature sensor
+export const VELUX = 'io://1234-5678-9012/6566081'; // solar Velux roller shutter
+export const SIREN = 'io://1234-5678-9012/2733989'; // siren, battery as a word
+export const WIRED_VELUX = 'io://1234-5678-9012/15097783'; // Velux blind, no battery
 
 export const silentLogger = { debug() {}, info() {}, warn() {}, error() {} };
 

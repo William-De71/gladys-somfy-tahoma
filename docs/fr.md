@@ -79,19 +79,27 @@ Ouvrez l’onglet **Découverte** : chaque appareil de la box que Gladys sait
 afficher apparaît, avec le nom donné dans l’application TaHoma. Ajoutez ceux
 que vous voulez.
 
-| Appareil TaHoma                                                          | Dans Gladys                                                                                                                  |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| Volet roulant, store, screen, fenêtre, pergola, porte de garage, portail | Volet : ouvrir / stop / fermer, position quand le moteur la donne, lames s’il en a                                           |
-| Store banne                                                              | Volet, position = déploiement                                                                                                |
-| Rideau                                                                   | Rideau                                                                                                                       |
-| Ouvrant à un seul bouton                                                 | Volet, ouvrir et fermer appuient sur le bouton                                                                               |
-| Moteur RTS                                                               | Volet sans retour d’état (le RTS est à sens unique)                                                                          |
-| Lumière                                                                  | Lumière : marche / arrêt, intensité si variable                                                                              |
-| Prise, relais, piscine                                                   | Interrupteur                                                                                                                 |
-| Capteurs                                                                 | Température, luminosité, humidité, ouverture, mouvement, fumée, fuite d’eau, batterie, CO2, puissance, index d’énergie (kWh) |
+| Appareil TaHoma                                                          | Dans Gladys                                                                                                                                     |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Volet roulant, store, screen, fenêtre, pergola, porte de garage, portail | Volet : ouvrir / stop / fermer, position quand le moteur la donne, lames s’il en a                                                              |
+| Store banne                                                              | Volet, position = déploiement                                                                                                                   |
+| Rideau                                                                   | Rideau                                                                                                                                          |
+| Ouvrant à un seul bouton                                                 | Volet, ouvrir et fermer appuient sur le bouton                                                                                                  |
+| Moteur RTS                                                               | Volet sans retour d’état (le RTS est à sens unique)                                                                                             |
+| Lumière                                                                  | Lumière : marche / arrêt, intensité si variable                                                                                                 |
+| Prise, relais, piscine                                                   | Interrupteur                                                                                                                                    |
+| Capteurs                                                                 | Température, luminosité, humidité, ouverture, mouvement, fumée, fuite d’eau, batterie et batterie faible, CO2, puissance, index d’énergie (kWh) |
 
 Les positions indiquent l’ouverture (100 % = ouvert), comme partout dans
 Gladys. La box pousse les changements : rien n’est interrogé en boucle.
+
+Batteries : la plupart des appareils (volets Velux solaires, sirènes,
+capteurs IO) ne donnent pas de pourcentage, seulement un niveau en mots.
+L’intégration en tire une estimation (bon ou plein 100 %, normal 75 %,
+moyen 50 %, faible 15 %, très faible ou critique 5 %) et ajoute un capteur
+**Batterie faible**, allumé dès que le niveau est faible. Un appareil déjà
+créé dans Gladys reçoit ces capteurs avec **Mettre à jour** dans l’écran de
+découverte.
 
 Pas encore gérés : le chauffage (thermostats, vannes, pompes à chaleur), les
 alarmes, les caméras et les lampes Hue derrière la box.

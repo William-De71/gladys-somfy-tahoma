@@ -29,8 +29,11 @@ import {
   setup,
   setValue,
   settle,
+  SIREN,
   THERMO,
   until,
+  VELUX,
+  WIRED_VELUX,
 } from './helpers.js';
 import { startFakeOverkiz } from './helpers/fake-overkiz.js';
 
@@ -50,7 +53,7 @@ test('discovery: every device Gladys can show, ids from the deviceURL, never pol
   const { fake, stop } = await setup({ create: false });
   try {
     const names = fake.discoveredDevices.map((item) => item.name).sort();
-    assert.equal(names.length, 14);
+    assert.equal(names.length, 16);
     // The box itself, its radio stacks and the pod are never offered.
     for (const hidden of ['TaHoma', 'IO', 'Zigbee']) {
       assert.ok(!names.includes(hidden), hidden);
@@ -74,6 +77,17 @@ test('discovery: every device Gladys can show, ids from the deviceURL, never pol
     assert.deepEqual(keys(deviceOf(fake, device(PLUG))), ['switch']);
     assert.deepEqual(keys(deviceOf(fake, device(DOOR))), ['contact']);
     assert.deepEqual(keys(deviceOf(fake, device(THERMO))), ['temperature']);
+    // Batteries reported as a word: a percentage and a low battery flag.
+    assert.deepEqual(keys(deviceOf(fake, device(VELUX))), [
+      'state',
+      'position',
+      'battery',
+      'battery_low',
+    ]);
+    assert.equal(featureOf(deviceOf(fake, device(VELUX)), 'battery_low').name, 'Batterie faible');
+    assert.deepEqual(keys(deviceOf(fake, device(SIREN))), ['battery', 'battery_low']);
+    // A wired Velux declares the battery word without ever filling it.
+    assert.deepEqual(keys(deviceOf(fake, device(WIRED_VELUX))), ['state', 'position']);
     // Every feature carries what the core requires to create it.
     for (const item of fake.discoveredDevices) {
       for (const feature of item.features) {
@@ -94,12 +108,16 @@ test('local first: mDNS finds the box, states and badges once created', async ()
   try {
     await settle(app);
     assert.equal(fake.connectionStatus.connected, true);
-    assert.match(fake.connectionStatus.message.fr, /réseau local, 14 appareil/);
+    assert.match(fake.connectionStatus.message.fr, /réseau local, 16 appareil/);
     assert.equal(fake.lastState(`${device(LIVING)}:position`), 0);
     assert.equal(fake.lastState(`${device(LIVING)}:state`), -1);
     assert.equal(fake.lastState(`${device(LAMP)}:brightness`), 56);
     assert.equal(fake.lastState(`${device(THERMO)}:temperature`), 24.1);
     assert.equal(fake.lastState(`${device(DOOR)}:contact`), 1);
+    assert.equal(fake.lastState(`${device(VELUX)}:battery`), 50);
+    assert.equal(fake.lastState(`${device(VELUX)}:battery_low`), 0);
+    assert.equal(fake.lastState(`${device(SIREN)}:battery`), 15);
+    assert.equal(fake.lastState(`${device(SIREN)}:battery_low`), 1);
     assert.deepEqual(lastTransport(fake, device(LIVING)), {
       device_external_id: device(LIVING),
       transport: 'local',
@@ -121,6 +139,18 @@ test('events: positions as Gladys counts them, cloud strings cast, availability'
     // A cloud-style value: a string with its type.
     server.push(stateEvent(LIVING, [{ name: 'core:ClosureState', type: 1, value: '30' }]));
     await until(() => fake.lastState(`${device(LIVING)}:position`) === 70);
+    server.push(
+      stateEvent(VELUX, [{ name: 'core:BatteryDiscreteLevelState', type: 3, value: 'critical' }]),
+    );
+    await until(() => fake.lastState(`${device(VELUX)}:battery_low`) === 1);
+    assert.equal(fake.lastState(`${device(VELUX)}:battery`), 5);
+    // A word the integration does not know publishes nothing.
+    server.push(
+      stateEvent(VELUX, [{ name: 'core:BatteryDiscreteLevelState', type: 3, value: 'weird' }]),
+    );
+    await settle(app);
+    assert.equal(fake.lastState(`${device(VELUX)}:battery`), 5);
+    assert.equal(fake.lastState(`${device(VELUX)}:battery_low`), 1);
     await settle(app);
     assert.equal(fake.lastState(`${device(LIVING)}:state`), 0);
     // An event of another box of the account is ignored.
@@ -182,7 +212,7 @@ test('cloud only: no token, the Somfy cloud, scenarios run by their id', async (
   const { fake, app, server, stop } = await setup({ config: CLOUD_CONFIG, mdns: false });
   try {
     await settle(app);
-    assert.match(fake.connectionStatus.message.en, /through the Somfy cloud, 14 device/);
+    assert.match(fake.connectionStatus.message.en, /through the Somfy cloud, 16 device/);
     assert.equal(lastTransport(fake, device(LIVING)).transport, 'cloud');
     assert.equal(lastTransport(fake, device(LIVING)).degraded, undefined);
     const output = outputs(await fake.sceneAction('run_scenario', { scenario: 'je pars' }));

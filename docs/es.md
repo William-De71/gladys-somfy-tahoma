@@ -77,19 +77,26 @@ Abra la pestaña **Descubrir**: cada dispositivo de la caja que Gladys sabe
 mostrar aparece con el nombre dado en la aplicación TaHoma. Añada los que
 quiera.
 
-| Dispositivo TaHoma                                                  | En Gladys                                                                                                                    |
-| ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Persiana, estor, screen, ventana, pérgola, puerta de garaje, portón | Persiana: abrir / parar / cerrar, posición cuando el motor la indica, lamas si las tiene                                     |
-| Toldo                                                               | Persiana, posición = despliegue                                                                                              |
-| Cortina                                                             | Cortina                                                                                                                      |
-| Motor de un solo botón                                              | Persiana, abrir y cerrar pulsan el botón                                                                                     |
-| Motor RTS                                                           | Persiana sin respuesta de estado (el RTS es unidireccional)                                                                  |
-| Luz                                                                 | Luz: encendido / apagado, intensidad si es regulable                                                                         |
-| Enchufe, relé, piscina                                              | Interruptor                                                                                                                  |
-| Sensores                                                            | Temperatura, luminosidad, humedad, apertura, movimiento, humo, fuga de agua, batería, CO2, potencia, índice de energía (kWh) |
+| Dispositivo TaHoma                                                  | En Gladys                                                                                                                                   |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Persiana, estor, screen, ventana, pérgola, puerta de garaje, portón | Persiana: abrir / parar / cerrar, posición cuando el motor la indica, lamas si las tiene                                                    |
+| Toldo                                                               | Persiana, posición = despliegue                                                                                                             |
+| Cortina                                                             | Cortina                                                                                                                                     |
+| Motor de un solo botón                                              | Persiana, abrir y cerrar pulsan el botón                                                                                                    |
+| Motor RTS                                                           | Persiana sin respuesta de estado (el RTS es unidireccional)                                                                                 |
+| Luz                                                                 | Luz: encendido / apagado, intensidad si es regulable                                                                                        |
+| Enchufe, relé, piscina                                              | Interruptor                                                                                                                                 |
+| Sensores                                                            | Temperatura, luminosidad, humedad, apertura, movimiento, humo, fuga de agua, batería y batería baja, CO2, potencia, índice de energía (kWh) |
 
 Las posiciones indican cuánto está abierto (100 % = abierto), como en todo
 Gladys. La caja envía los cambios: no se consulta nada en bucle.
+
+Baterías: la mayoría de los dispositivos (persianas Velux solares, sirenas,
+sensores IO) no dan un porcentaje, solo un nivel en palabras. La integración
+lo convierte en una estimación (bueno o lleno 100 %, normal 75 %, medio
+50 %, bajo 15 %, muy bajo o crítico 5 %) y añade un sensor **Batería baja**,
+activo desde el nivel bajo. Un dispositivo ya creado en Gladys recibe estos
+sensores con **Actualizar** en la pantalla de descubrimiento.
 
 Aún no gestionados: la calefacción (termostatos, válvulas, bombas de calor),
 las alarmas, las cámaras y las lámparas Hue detrás de la caja.

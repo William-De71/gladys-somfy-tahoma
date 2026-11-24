@@ -9,8 +9,8 @@
 //   light                -> light: on / off, intensity when dimmable
 //   plug, relay, pool    -> switch: on / off
 //   any device           -> its sensors: temperature, light, humidity,
-//                           opening, motion, smoke, water, battery, CO2,
-//                           power, energy index
+//                           opening, motion, smoke, water, battery, low
+//                           battery, CO2, power, energy index
 //
 // External ids: `gladys.externalIds('device', <deviceURL as letters, digits
 // and dashes>)`, the same through the cloud and the local API (the deviceURL
@@ -51,6 +51,37 @@ export const FEATURE_KEYS = {
 
 export const COVER = { OPEN: 1, STOP: 0, CLOSE: -1 };
 
+// Batteries: a few devices report a gauge (`core:BatteryLevelState`), most
+// only a word. Solar Velux covers report `core:BatteryDiscreteLevelState`
+// (good / medium / low / critical) and nothing else; sirens and other IO
+// sensors `core:BatteryState` (full / normal / medium / low / verylow).
+// Home Assistant shows the word, gladys-overkiz turns it into a low battery
+// flag: nobody publishes a percentage for it. The Somfy app shows 100 % for
+// "good" (home-assistant/core#141169), the other steps are our estimate, so
+// that the battery widget and the Gladys low battery alert work for these
+// devices too; `battery_low` carries the word itself.
+const BATTERY_PERCENT = {
+  full: 100,
+  good: 100,
+  normal: 75,
+  medium: 50,
+  low: 15,
+  verylow: 5,
+  critical: 5,
+};
+const BATTERY_LOW_WORDS = new Set(['low', 'verylow', 'critical']);
+
+const batteryPercent = (raw) => {
+  if (Number.isFinite(raw)) {
+    return Math.min(100, Math.max(0, Math.round(raw)));
+  }
+  return typeof raw === 'string' ? (BATTERY_PERCENT[raw] ?? null) : null;
+};
+
+// An unknown word publishes nothing: "battery fine" would be the worse guess.
+const batteryLow = (raw) =>
+  typeof raw === 'string' && raw in BATTERY_PERCENT ? (BATTERY_LOW_WORDS.has(raw) ? 1 : 0) : null;
+
 const binary = (category, onValue) => ({
   category,
   type: TYPES.SENSOR.BINARY,
@@ -59,7 +90,10 @@ const binary = (category, onValue) => ({
   value: (raw) => (typeof raw === 'string' ? (raw === onValue ? 1 : 0) : null),
 });
 
-/** Sensors read on any device, by Overkiz state. */
+/**
+ * Sensors read on any device, by Overkiz state. `states` lists several
+ * sources of the same value, the first one holding a value wins.
+ */
 export const SENSORS = [
   {
     key: 'temperature',
@@ -98,13 +132,24 @@ export const SENSORS = [
   { key: 'leak', state: STATES.WATER_DETECTION, ...binary(CATEGORIES.LEAK_SENSOR, 'detected') },
   {
     key: 'battery',
-    state: STATES.BATTERY_LEVEL,
+    states: [STATES.BATTERY_LEVEL, STATES.BATTERY_DISCRETE_LEVEL, STATES.BATTERY],
     category: CATEGORIES.BATTERY,
     type: TYPES.BATTERY.INTEGER,
     unit: UNITS.PERCENT,
     min: 0,
     max: 100,
-    value: (raw) => (Number.isFinite(raw) ? Math.min(100, Math.max(0, Math.round(raw))) : null),
+    value: batteryPercent,
+  },
+  {
+    // Only for the devices that report a word: Gladys already alerts on a
+    // gauge below its threshold.
+    key: 'battery_low',
+    states: [STATES.BATTERY_DISCRETE_LEVEL, STATES.BATTERY],
+    category: CATEGORIES.BATTERY_LOW,
+    type: TYPES.BATTERY_LOW.BINARY,
+    min: 0,
+    max: 1,
+    value: batteryLow,
   },
   {
     key: 'co2',
@@ -138,6 +183,16 @@ export const SENSORS = [
     value: (raw) => (Number.isFinite(raw) && raw >= 0 ? Math.round(raw) / 1000 : null),
   },
 ];
+
+const sourcesOf = (sensor) => sensor.states ?? [sensor.state];
+
+// Wired Velux covers declare `core:BatteryDiscreteLevelState` too but never
+// fill it: like Home Assistant and Matterbridge, a battery word counts only
+// when the box reports a value.
+const REPORTED_ONLY = new Set([STATES.BATTERY_DISCRETE_LEVEL, STATES.BATTERY]);
+
+const offers = (device, name) =>
+  REPORTED_ONLY.has(name) ? device.states.has(name) : hasState(device, name);
 
 const feature = (key, language, spec) => ({
   key,
@@ -240,7 +295,7 @@ export function featureSpecs(device, language) {
     );
   }
   for (const sensor of SENSORS) {
-    if (hasState(device, sensor.state)) {
+    if (sourcesOf(sensor).some((name) => offers(device, name))) {
       const { key, category, type, unit, min, max } = sensor;
       list.push(
         feature(key, language, {
@@ -324,8 +379,12 @@ export function deviceValues(device) {
     add(FEATURE_KEYS.SWITCH, onOff(device));
   }
   for (const sensor of SENSORS) {
-    if (device.states.has(sensor.state)) {
-      add(sensor.key, sensor.value(device.states.get(sensor.state)));
+    for (const name of sourcesOf(sensor)) {
+      const value = device.states.has(name) ? sensor.value(device.states.get(name)) : null;
+      if (value !== null) {
+        add(sensor.key, value);
+        break;
+      }
     }
   }
   return values;

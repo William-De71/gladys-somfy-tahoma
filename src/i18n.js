@@ -41,6 +41,12 @@ const MESSAGES = {
   feature_smoke: { en: 'Smoke', fr: 'Fumée', de: 'Rauch', es: 'Humo' },
   feature_leak: { en: 'Water leak', fr: 'Fuite d’eau', de: 'Wasserleck', es: 'Fuga de agua' },
   feature_battery: { en: 'Battery', fr: 'Batterie', de: 'Batterie', es: 'Batería' },
+  feature_battery_low: {
+    en: 'Low battery',
+    fr: 'Batterie faible',
+    de: 'Batterie schwach',
+    es: 'Batería baja',
+  },
   feature_co2: { en: 'CO2', fr: 'CO2', de: 'CO2', es: 'CO2' },
   feature_power: { en: 'Power', fr: 'Puissance', de: 'Leistung', es: 'Potencia' },
   feature_energy: { en: 'Energy', fr: 'Énergie', de: 'Energie', es: 'Energía' },

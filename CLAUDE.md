@@ -78,8 +78,9 @@ test/fixtures/               setup and scenarios from pyoverkiz fixtures, TLS te
   the same through both channels;
   `…:<feature key>` (`state`, `position`, `tilt`, `light`, `brightness`,
   `switch`, `temperature`, `luminance`, `humidity`, `contact`, `motion`,
-  `smoke`, `leak`, `battery`, `co2`, `power`, `energy`). Config, action, field,
-  widget, trigger, variable, output keys and select values too.
+  `smoke`, `leak`, `battery`, `battery_low`, `co2`, `power`, `energy`).
+  Config, action, field, widget, trigger, variable, output keys and select
+  values too.
   `test/structure.test.js` pins them in `test/fixtures/discovery.baseline.json`:
   never rewrite the baseline to make a test pass.
 - **Positions**: Gladys counts how open (100 % = open). Overkiz
@@ -138,6 +139,11 @@ test/fixtures/               setup and scenarios from pyoverkiz fixtures, TLS te
   SDK lowercases TXT keys.
 - An event listener dies after 10 minutes without a fetch or a reboot of the
   box: register again and read the setup.
+- Batteries: most devices report a word, not a gauge
+  (`core:BatteryDiscreteLevelState` for solar Velux covers,
+  `core:BatteryState` for sirens and IO sensors). Wired Velux covers declare
+  the word without ever filling it: a word counts only with a value.
+- The local API names the declared states `name`, the cloud `qualifiedName`.
 - `ExteriorScreen` has both closure and deployment states: closure wins (HA).
 - Gladys does not send the user's language with a scan or a command: feature
   names and scene errors use the `language` setting.

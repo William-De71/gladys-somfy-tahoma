@@ -235,6 +235,66 @@
           "max": 1
         }
       ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-6566081",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-6566081:state",
+          "category": "shutter",
+          "type": "state",
+          "unit": null,
+          "min": -1,
+          "max": 1
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-6566081:position",
+          "category": "shutter",
+          "type": "position",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-6566081:battery",
+          "category": "battery",
+          "type": "integer",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-6566081:battery_low",
+          "category": "battery-low",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
+    },
+    {
+      "external_id": "ext:selector:device:io-1234-5678-9012-2733989",
+      "params": ["TAHOMA_DEVICE_URL", "TAHOMA_PIN"],
+      "features": [
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-2733989:battery",
+          "category": "battery",
+          "type": "integer",
+          "unit": "percent",
+          "min": 0,
+          "max": 100
+        },
+        {
+          "external_id": "ext:selector:device:io-1234-5678-9012-2733989:battery_low",
+          "category": "battery-low",
+          "type": "binary",
+          "unit": null,
+          "min": 0,
+          "max": 1
+        }
+      ]
     }
   ],
   "config": [

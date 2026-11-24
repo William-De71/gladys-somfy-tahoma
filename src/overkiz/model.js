@@ -5,7 +5,7 @@
 //   { deviceURL: 'io://1234-5678-9012/12184029', label, controllableName,
 //     available, enabled, attributes: [{ name, value }],
 //     definition: { uiClass, widgetName, commands: [{ commandName, nparams }],
-//                   states: [{ qualifiedName }] },
+//                   states: [{ qualifiedName }] (local: [{ name }]) },
 //     states: [{ name, type, value }] }
 // The deviceURL holds the PIN of the box: `<protocol>://<pin>/<address>[#n]`.
 // A sub-device (`#2`, `#3`) is another physical part (a sensor of the
@@ -37,6 +37,8 @@ export const STATES = {
   SMOKE: 'core:SmokeState',
   WATER_DETECTION: 'core:WaterDetectionState',
   BATTERY_LEVEL: 'core:BatteryLevelState',
+  BATTERY_DISCRETE_LEVEL: 'core:BatteryDiscreteLevelState',
+  BATTERY: 'core:BatteryState',
   CO2: 'core:CO2ConcentrationState',
   POWER: 'core:ElectricPowerConsumptionState',
   ENERGY: 'core:ElectricEnergyConsumptionState',
@@ -126,8 +128,9 @@ export function normalizeDevice(raw) {
       states.set(state.name, castState(state));
     }
   }
+  // The cloud names a declared state `qualifiedName`, the local API `name`.
   const declared = new Set(
-    (definition.states ?? []).map((state) => state?.qualifiedName).filter(Boolean),
+    (definition.states ?? []).map((state) => state?.qualifiedName ?? state?.name).filter(Boolean),
   );
   const attribute = (name) => raw.attributes?.find?.((item) => item?.name === name)?.value;
   return {

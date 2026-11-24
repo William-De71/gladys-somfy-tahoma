@@ -81,19 +81,27 @@ Szenen-Fehlermeldungen.
 kann, erscheint mit dem Namen aus der TaHoma-App. Fügen Sie die gewünschten
 hinzu.
 
-| TaHoma-Gerät                                                   | In Gladys                                                                                                                     |
-| -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Rollladen, Jalousie, Screen, Fenster, Pergola, Garagentor, Tor | Rollladen: öffnen / stopp / schließen, Position, wenn der Motor sie meldet, Lamellen, wenn vorhanden                          |
-| Markise                                                        | Rollladen, Position = Ausfahrweite                                                                                            |
-| Vorhang                                                        | Vorhang                                                                                                                       |
-| Antrieb mit einer Taste                                        | Rollladen, öffnen und schließen drücken die Taste                                                                             |
-| RTS-Motor                                                      | Rollladen ohne Rückmeldung (RTS ist einseitig)                                                                                |
-| Licht                                                          | Licht: ein / aus, Helligkeit, wenn dimmbar                                                                                    |
-| Steckdose, Relais, Pool                                        | Schalter                                                                                                                      |
-| Sensoren                                                       | Temperatur, Lichtstärke, Luftfeuchtigkeit, Öffnung, Bewegung, Rauch, Wasserleck, Batterie, CO2, Leistung, Energiezähler (kWh) |
+| TaHoma-Gerät                                                   | In Gladys                                                                                                                                           |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Rollladen, Jalousie, Screen, Fenster, Pergola, Garagentor, Tor | Rollladen: öffnen / stopp / schließen, Position, wenn der Motor sie meldet, Lamellen, wenn vorhanden                                                |
+| Markise                                                        | Rollladen, Position = Ausfahrweite                                                                                                                  |
+| Vorhang                                                        | Vorhang                                                                                                                                             |
+| Antrieb mit einer Taste                                        | Rollladen, öffnen und schließen drücken die Taste                                                                                                   |
+| RTS-Motor                                                      | Rollladen ohne Rückmeldung (RTS ist einseitig)                                                                                                      |
+| Licht                                                          | Licht: ein / aus, Helligkeit, wenn dimmbar                                                                                                          |
+| Steckdose, Relais, Pool                                        | Schalter                                                                                                                                            |
+| Sensoren                                                       | Temperatur, Lichtstärke, Luftfeuchtigkeit, Öffnung, Bewegung, Rauch, Wasserleck, Batterie und schwache Batterie, CO2, Leistung, Energiezähler (kWh) |
 
 Positionen geben an, wie weit geöffnet ist (100 % = offen), wie überall in
 Gladys. Die Box meldet Änderungen selbst: Nichts wird abgefragt.
+
+Batterien: Die meisten Geräte (solarbetriebene Velux-Rollläden, Sirenen,
+IO-Sensoren) liefern keinen Prozentwert, nur eine Stufe in Worten. Die
+Integration schätzt daraus einen Wert (gut oder voll 100 %, normal 75 %,
+mittel 50 %, schwach 15 %, sehr schwach oder kritisch 5 %) und fügt einen
+Sensor **Batterie schwach** hinzu, aktiv ab der Stufe schwach. Ein bereits in
+Gladys angelegtes Gerät erhält diese Sensoren über **Aktualisieren** im
+Erkennungsbildschirm.
 
 Noch nicht unterstützt: Heizung (Thermostate, Ventile, Wärmepumpen), Alarme,
 Kameras und Hue-Lampen hinter der Box.

@@ -184,6 +184,67 @@ test('devices: energy in kWh, sensors read-only, a device without features is le
   assert.equal(buildDevice(gladys, deviceAt('internal://1234-5678-9012/pod/0'), 'en'), null);
 });
 
+test('batteries: a gauge first, then the words, a percentage and a low flag', () => {
+  const battery = (states, definition = []) =>
+    normalizeDevice({
+      deviceURL: 'io://1234-5678-9012/91',
+      label: 'Pile',
+      definition: { uiClass: 'Siren', states: definition },
+      states,
+    });
+  const word = (name, value) => ({ name, type: 3, value });
+  const valuesOf = (device) => Object.fromEntries(deviceValues(device));
+  const steps = {
+    good: [100, 0],
+    medium: [50, 0],
+    low: [15, 1],
+    critical: [5, 1],
+  };
+  for (const [value, [percent, low]] of Object.entries(steps)) {
+    assert.deepEqual(valuesOf(battery([word('core:BatteryDiscreteLevelState', value)])), {
+      battery: percent,
+      battery_low: low,
+    });
+  }
+  for (const [value, [percent, low]] of Object.entries({
+    full: [100, 0],
+    normal: [75, 0],
+    verylow: [5, 1],
+  })) {
+    assert.deepEqual(valuesOf(battery([word('core:BatteryState', value)])), {
+      battery: percent,
+      battery_low: low,
+    });
+  }
+  // The gauge wins over the word for the percentage.
+  assert.deepEqual(
+    valuesOf(
+      battery([
+        { name: 'core:BatteryLevelState', type: 2, value: '42.0' },
+        word('core:BatteryState', 'normal'),
+      ]),
+    ),
+    { battery: 42, battery_low: 0 },
+  );
+  // A gauge alone: no low flag, Gladys alerts on its threshold.
+  const gauge = battery([{ name: 'core:BatteryLevelState', type: 1, value: 80 }]);
+  assert.deepEqual(
+    buildDevice(gladys, gauge, 'en').features.map((feature) =>
+      feature.external_id.split(':').pop(),
+    ),
+    ['battery'],
+  );
+  // Declared without a value (a wired Velux): no battery at all. The local
+  // API names the declared states `name`, the cloud `qualifiedName`.
+  for (const declared of [
+    { name: 'core:BatteryDiscreteLevelState' },
+    { qualifiedName: 'core:BatteryDiscreteLevelState' },
+  ]) {
+    assert.equal(buildDevice(gladys, battery([], [declared]), 'en'), null);
+  }
+  assert.ok(battery([], [{ name: 'core:TemperatureState' }]).declared.has('core:TemperatureState'));
+});
+
 test('failures: per device on the cloud, one device on the local API', () => {
   assert.equal(failuresOf({ name: 'ExecutionStateChangedEvent', newState: 'COMPLETED' }), null);
   assert.deepEqual(
