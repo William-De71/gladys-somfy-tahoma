@@ -2,7 +2,7 @@
 // Dashboard widgets.
 //
 //   cover      one cover (setting `device`): how open it is (a live gauge),
-//              what it does, its slats and its "My" position, the buttons
+//              what it does, its slats, its "My" position and its battery, the buttons
 //              open / stop / My / close. "My" is what Gladys has no button
 //              for: the favourite position stored in the motor.
 //   overview   the covers added to Gladys at a glance (setting `names`:
@@ -49,6 +49,8 @@ const MAX_BUTTONS = 4;
  * @property {number|null} myPosition - "My" position, how open (null: unknown).
  * @property {boolean} hasStop - A stop command exists.
  * @property {boolean} hasMy - A "My" command exists.
+ * @property {number|null} battery - Battery, percent (null: none, or unknown).
+ * @property {boolean} batteryLow - The battery is low.
  * @property {object} features - `{ state, position }` feature external ids.
  */
 
@@ -115,6 +117,15 @@ export function buildCoverWidget(view) {
   }
   if (view.reachable && view.hasMy && Number.isFinite(view.myPosition)) {
     items.push({ label: t('widgetMy'), value: percent(view.myPosition), color: 'info' });
+  }
+  // The last known level, even when the cover does not answer: an empty
+  // battery is a likely reason.
+  if (Number.isFinite(view.battery)) {
+    items.push({
+      label: t('widgetBattery'),
+      value: percent(view.battery),
+      color: view.batteryLow ? 'danger' : 'success',
+    });
   }
   components.push({ type: 'status', items });
   if (!view.reachable) {

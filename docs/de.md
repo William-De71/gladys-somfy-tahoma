@@ -121,8 +121,9 @@ Befehle und Zustände über Somfy.
 
 ![Die Widgets TaHoma-Behang, TaHoma-Box und TaHoma-Szenarien (generierte Illustration, kein Screenshot)](https://raw.githubusercontent.com/William-De71/gladys-somfy-tahoma/main/docs/assets/widgets.de.png)
 
-- **TaHoma-Behang**: ein Behang, wie weit geöffnet, sein Zustand, Lamellen
-  und „My“-Position, mit den Tasten öffnen, stopp, „My“ und schließen.
+- **TaHoma-Behang**: ein Behang, wie weit geöffnet, sein Zustand, Lamellen,
+  „My“-Position und Batterie (Solarbehänge), mit den Tasten öffnen, stopp,
+  „My“ und schließen.
 - **TaHoma-Box**: die Behänge auf einen Blick, der genutzte Weg, die
   Firmware, stumme Geräte und eine Taste, um die Zustände neu zu lesen.
   Gladys zeigt höchstens acht Karten: darüber hinaus werden sieben Behänge

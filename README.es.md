@@ -109,7 +109,7 @@ Baterías: `battery` lee el indicador (`core:BatteryLevelState`) cuando existe; 
 
 ![El widget «Persiana TaHoma» de la persiana del salón (indicador al 65 %, estado, posición «My», botones Abrir, Parar, My, Cerrar), la vista «Caja TaHoma» de seis persianas y la caja en la red local, y el widget «Escenarios TaHoma» con cuatro botones (ilustración generada, no una captura de pantalla)](docs/assets/widgets.es.png)
 
-- **Persiana TaHoma** (`cover`, ajuste: una persiana): indicador en directo de la posición, estado, lamas, posición «My» y los botones **Abrir**, **Parar**, **My** (la posición favorita guardada en el motor) y **Cerrar**; un motor de un solo botón muestra un solo botón.
+- **Persiana TaHoma** (`cover`, ajuste: una persiana): indicador en directo de la posición, estado, lamas, posición «My», batería (persianas solares) y los botones **Abrir**, **Parar**, **My** (la posición favorita guardada en el motor) y **Cerrar**; un motor de un solo botón muestra un solo botón.
 - **Caja TaHoma** (`overview`): las persianas añadidas a Gladys con su estado y posición, el canal en uso, el firmware, los dispositivos que no responden y un botón **Leer estados**. Con más de ocho persianas se muestran siete (primero las que se mueven, están abiertas o no responden) y una última tarjeta «+ N persiana(s) más» nombra las demás. Ajuste `names`: las persianas mostradas, nombres separados por comas, en ese orden.
 - **Escenarios TaHoma** (`scenarios`, ajuste: nombres separados por comas): los escenarios TaHoma y botones para ejecutar hasta cuatro.
 

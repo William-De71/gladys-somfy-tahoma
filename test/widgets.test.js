@@ -130,3 +130,23 @@ test('widgets: long cache, every change asks for a refresh', () => {
   assert.equal(OVERVIEW_TTL_SECONDS, 3600);
   assert.equal(buildCoverWidget(TEN[0]).ttl_seconds, 3600);
 });
+
+test('cover: the battery when the cover has one, red when low, kept when it does not answer', () => {
+  const status = (content) => content.components.find((item) => item.type === 'status').items;
+  const battery = (content) => status(content).find((item) => item.label.fr === 'Batterie');
+  // A wired cover: no battery line.
+  assert.equal(battery(buildCoverWidget(cover('Salon', 1))), undefined);
+  const solar = buildCoverWidget(cover('Velux est', 1, { battery: 100, batteryLow: false }));
+  assert.deepEqual(validateWidgetContent(solar), []);
+  assert.deepEqual(battery(solar), {
+    label: { en: 'Battery', fr: 'Batterie', de: 'Batterie', es: 'Batería' },
+    value: '100 %',
+    color: 'success',
+  });
+  const empty = buildCoverWidget(
+    cover('Velux ouest', null, { reachable: false, battery: 5, batteryLow: true }),
+  );
+  assert.deepEqual(validateWidgetContent(empty), []);
+  assert.equal(battery(empty).value, '5 %');
+  assert.equal(battery(empty).color, 'danger');
+});

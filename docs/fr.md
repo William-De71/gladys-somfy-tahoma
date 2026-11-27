@@ -119,8 +119,9 @@ passent par Somfy.
 
 ![Les widgets Volet TaHoma, Box TaHoma et Scénarios TaHoma (illustration générée, pas une capture d’écran)](https://raw.githubusercontent.com/William-De71/gladys-somfy-tahoma/main/docs/assets/widgets.fr.png)
 
-- **Volet TaHoma** : un volet, son ouverture, son état, ses lames et sa
-  position « My », avec les boutons ouvrir, stop, « My » et fermer.
+- **Volet TaHoma** : un volet, son ouverture, son état, ses lames, sa
+  position « My » et sa batterie (volets solaires), avec les boutons ouvrir,
+  stop, « My » et fermer.
 - **Box TaHoma** : les volets d’un coup d’œil, le canal utilisé, le
   micrologiciel, les appareils muets, et un bouton pour relire les états.
   Gladys affiche huit cartes au plus : au-delà, sept volets sont montrés (ceux

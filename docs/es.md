@@ -116,7 +116,8 @@ cada hora si hay una cuenta. En modo nube, órdenes y estados pasan por Somfy.
 ![Los widgets Persiana TaHoma, Caja TaHoma y Escenarios TaHoma (ilustración generada, no una captura de pantalla)](https://raw.githubusercontent.com/William-De71/gladys-somfy-tahoma/main/docs/assets/widgets.es.png)
 
 - **Persiana TaHoma**: una persiana, cuánto está abierta, su estado, sus
-  lamas y su posición «My», con los botones abrir, parar, «My» y cerrar.
+  lamas, su posición «My» y su batería (persianas solares), con los botones
+  abrir, parar, «My» y cerrar.
 - **Caja TaHoma**: las persianas de un vistazo, el canal en uso, el firmware,
   los dispositivos que no responden y un botón para leer de nuevo los
   estados. Gladys muestra ocho tarjetas como máximo: más allá, se muestran

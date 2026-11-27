@@ -11,7 +11,11 @@
 //   - `publishChangedStates` of the SDK drops the unchanged values (with an
 //     hourly heartbeat, so a steady sensor still shows it is alive);
 //   - a token bucket keeps the integration under 240 states a minute, and a
-//     refused batch (429) pauses the queue for 30 s.
+//     refused batch (429) pauses the queue for 30 s;
+//   - a few features (the power of a plug) change at every small variation:
+//     they are published at most once per `throttled` interval, the latest
+//     value waiting in the queue. Gladys flags a feature storing 8 640 states
+//     a day (one every 10 s) as "very chatty"; 30 s stays well below.
 //
 // A value is a number (a `{ text }` object is published as a text state).
 // The last value of every feature is kept, published or not: a device the
@@ -31,11 +35,17 @@ const HEARTBEAT_MS = 60 * 60 * 1000;
  * @param {object} deps.logger - Logger.
  * @param {Function} [deps.now] - Clock (ms).
  * @param {Function} [deps.isCreated] - `(deviceExternalId) => boolean`.
+ * @param {Function} [deps.throttled] - `(featureExternalId) => ms`: the
+ *   shortest interval between two publications of the feature (0: none).
  * @returns {object} The publisher.
  */
-export function createStatePublisher(gladys, { logger, now = Date.now, isCreated }) {
+export function createStatePublisher(
+  gladys,
+  { logger, now = Date.now, isCreated, throttled = () => 0 },
+) {
   const pending = new Map();
   const last = new Map();
+  const sentAt = new Map(); // throttled feature external id -> last publication
   let tokens = BURST;
   let refilledAt = now();
   let pausedUntil = 0;
@@ -48,6 +58,11 @@ export function createStatePublisher(gladys, { logger, now = Date.now, isCreated
     const current = now();
     tokens = Math.min(BURST, tokens + ((current - refilledAt) / 60000) * PER_MINUTE);
     refilledAt = current;
+  };
+
+  const ready = (featureId) => {
+    const interval = throttled(featureId);
+    return !(interval > 0 && sentAt.has(featureId) && now() - sentAt.get(featureId) < interval);
   };
 
   const schedule = () => {
@@ -91,9 +106,21 @@ export function createStatePublisher(gladys, { logger, now = Date.now, isCreated
         if (pending.size === 0 || now() < pausedUntil || tokens < 1) {
           return 0;
         }
-        const size = Math.min(BURST, Math.floor(tokens), pending.size);
-        const batch = [...pending.entries()].slice(0, size);
+        // A throttled feature published too recently waits in the queue
+        // (a newer value still replaces it).
+        const size = Math.min(BURST, Math.floor(tokens));
+        const batch = [...pending.entries()]
+          .filter(([featureId]) => ready(featureId))
+          .slice(0, size);
+        if (batch.length === 0) {
+          return 0;
+        }
         batch.forEach(([featureId]) => pending.delete(featureId));
+        batch.forEach(([featureId]) => {
+          if (throttled(featureId) > 0) {
+            sentAt.set(featureId, now());
+          }
+        });
         try {
           const result = await gladys.publishChangedStates(
             batch.map(([featureId, value]) =>
@@ -148,6 +175,7 @@ export function createStatePublisher(gladys, { logger, now = Date.now, isCreated
       gladys.forgetPublishedStates(deviceExternalId);
       for (const [featureId, value] of last) {
         if (deviceOf(featureId) === deviceExternalId) {
+          sentAt.delete(featureId);
           pending.set(featureId, value);
         }
       }

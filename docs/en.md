@@ -113,8 +113,9 @@ go through Somfy.
 
 ![The TaHoma cover, TaHoma box and TaHoma scenarios widgets (generated illustration, not a screenshot)](https://raw.githubusercontent.com/William-De71/gladys-somfy-tahoma/main/docs/assets/widgets.en.png)
 
-- **TaHoma cover**: one cover, how open it is, its state, slats and “My”
-  position, with the open, stop, “My” and close buttons.
+- **TaHoma cover**: one cover, how open it is, its state, slats, “My”
+  position and battery (solar covers), with the open, stop, “My” and close
+  buttons.
 - **TaHoma box**: the covers at a glance, the channel in use, the firmware,
   the devices not answering, and a button to read the states again. Gladys
   shows eight cards at most: past that, seven covers are shown (the moving

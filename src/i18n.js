@@ -305,6 +305,7 @@ const MESSAGES = {
     de: '„My“-Position',
     es: 'Posición «My»',
   },
+  widgetBattery: { en: 'Battery', fr: 'Batterie', de: 'Batterie', es: 'Batería' },
   widgetOffline: {
     en: 'The TaHoma box or this device does not answer.',
     fr: 'La box TaHoma ou cet appareil ne répond pas.',

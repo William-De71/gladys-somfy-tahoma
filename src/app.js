@@ -51,6 +51,9 @@ export const ACTIONS = { TEST: 'test_connection', ENABLE_LOCAL: 'enable_local' }
 
 const OFFLINE_AFTER_MS = 60 * 1000;
 const WIDGET_REFRESH_SPACING_MS = 11 * 1000;
+// A plug reports its power at every small variation: Gladys flags a feature
+// storing a state every 10 s on average as "very chatty".
+const POWER_SPACING_MS = 30 * 1000;
 const EXECUTION_LABEL = 'Gladys Assistant';
 const MAX_MESSAGE = 1800;
 const MAX_TRACKED = 200;
@@ -127,6 +130,7 @@ export function createApp(
     logger,
     now,
     isCreated: (externalId) => created.has(externalId),
+    throttled: (featureId) => (featureId.endsWith(':power') ? POWER_SPACING_MS : 0),
   });
 
   const safely = (task, what) =>
@@ -494,6 +498,11 @@ export function createApp(
   gladys.onDeviceUpdated?.(async (device) => {
     if (track(device)) {
       states.republish(device.external_id);
+      // The "Update" of the Discovery screen saves the device as published,
+      // which drops the GLADYS_TRANSPORT params the core keeps for the
+      // badge: send it again.
+      transports.delete(device.external_id);
+      publishTransports();
     }
     refreshWidgets();
   });
@@ -636,6 +645,7 @@ export function createApp(
     const cover = coverOf(device);
     const ids = idsOf(device);
     const memorized = device.states.get(STATES.MEMORIZED_1);
+    const values = Object.fromEntries(deviceValues(device));
     return {
       deviceId: ids.device,
       name: nameOf(device),
@@ -654,6 +664,8 @@ export function createApp(
           : null,
       hasStop: Boolean(cover.stop || cover.my),
       hasMy: Boolean(cover.my),
+      battery: values.battery ?? null,
+      batteryLow: values.battery_low === 1 || (values.battery ?? 100) <= 15,
       features: {
         state: ids.feature(FEATURE_KEYS.STATE),
         position: cover.position ? ids.feature(FEATURE_KEYS.POSITION) : null,

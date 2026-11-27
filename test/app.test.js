@@ -551,3 +551,35 @@ test('screen: closure wins over deployment, like the Home Assistant integration'
     await stop();
   }
 });
+
+test('discovery update: the transport badge comes back, the battery shows in the cover widget', async () => {
+  const { fake, app, stop } = await setup();
+  try {
+    await settle(app);
+    // The "Update" of the Discovery screen drops the GLADYS_TRANSPORT params:
+    // the badge is sent again even though the channel did not change.
+    const before = fake.transports.length;
+    const velux = fake.devices.find((item) => item.external_id === device(VELUX));
+    await fake.deviceUpdated(structuredClone(velux));
+    await until(() => fake.transports.length > before);
+    assert.deepEqual(lastTransport(fake, device(VELUX)), {
+      device_external_id: device(VELUX),
+      transport: 'local',
+    });
+    const status = (content) =>
+      content.components
+        .find((item) => item.type === 'status')
+        .items.map((item) => [item.label.fr, item.value, item.color]);
+    const solar = widget(await fake.widgetGet('cover', { settings: { device: device(VELUX) } }));
+    assert.deepEqual(status(solar).at(-1), ['Batterie', '50 %', 'success']);
+    const wired = widget(
+      await fake.widgetGet('cover', { settings: { device: device(WIRED_VELUX) } }),
+    );
+    assert.equal(
+      status(wired).some(([label]) => label === 'Batterie'),
+      false,
+    );
+  } finally {
+    await stop();
+  }
+});
